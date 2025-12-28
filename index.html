@@ -212,6 +212,22 @@
         border-color: var(--accent);
       }
 
+      /* Language Select styling */
+      select.control-btn {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0a0a0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        padding-right: 24px;
+        cursor: pointer;
+      }
+
+      select.control-btn option {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+      }
+
       /* Hero Section */
       .hero {
         min-height: 100vh;
@@ -672,6 +688,12 @@
         color: var(--text-primary);
         font-size: 24px;
         cursor: pointer;
+        padding: 5px;
+        z-index: 1001;
+      }
+
+      .mobile-menu-btn.active {
+        color: var(--accent);
       }
 
       /* Responsive - Tablets */
@@ -705,6 +727,21 @@
 
         nav {
           padding: 15px 20px;
+          flex-wrap: wrap;
+        }
+
+        .controls {
+          order: 2;
+          gap: 8px;
+        }
+
+        .control-btn {
+          padding: 6px 10px;
+          font-size: 11px;
+        }
+
+        #langSwitch {
+          padding: 6px 8px;
         }
 
         .nav-links {
@@ -717,17 +754,28 @@
           flex-direction: column;
           justify-content: flex-start;
           padding: 30px 20px;
-          gap: 15px;
+          gap: 20px;
           transition: left 0.3s ease;
           border-top: 1px solid var(--border);
+          z-index: 999;
+          overflow-y: auto;
         }
 
         .nav-links.active {
           left: 0;
         }
 
+        .nav-links a {
+          font-size: 16px;
+          padding: 10px 0;
+          display: block;
+          width: 100%;
+        }
+
         .mobile-menu-btn {
           display: block;
+          order: 3;
+          margin-left: 10px;
         }
 
         .hero {
@@ -813,7 +861,35 @@
         }
 
         .logo {
+          font-size: 18px;
+        }
+
+        .controls {
+          gap: 5px;
+        }
+
+        .control-btn {
+          padding: 5px 8px;
+          font-size: 10px;
+        }
+
+        #langSwitch {
+          padding: 5px 6px;
+          font-size: 10px;
+        }
+
+        #themeToggle span {
+          display: none;
+        }
+
+        #themeToggle::after {
+          content: attr(data-icon);
+          font-size: 16px;
+        }
+
+        .mobile-menu-btn {
           font-size: 20px;
+          margin-left: 5px;
         }
 
         .hero-title {
@@ -1678,6 +1754,8 @@
             ? "Dark"
             : "Dunkel";
         themeToggle.querySelector("span").textContent = text;
+        // Set icon for small screens
+        themeToggle.setAttribute("data-icon", theme === "dark" ? "☀️" : "🌙");
       }
 
       // Language Switcher
@@ -1709,14 +1787,27 @@
       const navLinks = document.getElementById("navLinks");
 
       mobileMenuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+        const isActive = navLinks.classList.toggle("active");
+        mobileMenuBtn.classList.toggle("active", isActive);
+        mobileMenuBtn.textContent = isActive ? "✕" : "☰";
       });
 
       // Close mobile menu when clicking a link
       document.querySelectorAll(".nav-link").forEach((link) => {
         link.addEventListener("click", () => {
           navLinks.classList.remove("active");
+          mobileMenuBtn.classList.remove("active");
+          mobileMenuBtn.textContent = "☰";
         });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+          navLinks.classList.remove("active");
+          mobileMenuBtn.classList.remove("active");
+          mobileMenuBtn.textContent = "☰";
+        }
       });
 
       // Smooth Scrolling
