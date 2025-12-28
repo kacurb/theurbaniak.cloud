@@ -1,0 +1,56 @@
+# =============================================================================
+# GitHub Actions Workflow - Automatyczny Deploy na VPS
+# =============================================================================
+# Ten plik definiuje co ma sie dziac po pushu do repozytorium.
+# Kazdy push do brancha 'main' uruchomi automatyczny deploy na serwer.
+# =============================================================================
+
+name: Deploy to VPS
+
+# KIEDY uruchomic workflow?
+on:
+  push:
+    branches:
+      - main  # Tylko przy pushu do brancha 'main'
+
+  # Pozwala tez uruchomic recznie z zakladki Actions na GitHub
+  workflow_dispatch:
+
+# CO ma sie wykonac?
+jobs:
+  deploy:
+    name: Deploy to Production Server
+    runs-on: ubuntu-latest  # Maszyna wirtualna GitHub do wykonania zadan
+
+    steps:
+      # Krok 1: Pobierz kod z repozytorium
+      - name: Checkout code
+        uses: actions/checkout@v4
+        # To pobiera Twoj kod na maszyne GitHub Actions
+
+      # Krok 2: Wdrozenie na serwer przez SSH
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          # Dane serwera (pobierane z GitHub Secrets - bezpieczne!)
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+
+          # Komendy do wykonania na serwerze
+          script: |
+            # Przejdz do katalogu strony
+            cd /var/www/theurbaniak.cloud
+
+            # Pobierz najnowsze zmiany z GitHub
+            git fetch origin main
+            git reset --hard origin/main
+
+            # Opcjonalnie: ustaw wlasciciela plikow
+            chown -R www-data:www-data /var/www/theurbaniak.cloud
+
+            # Opcjonalnie: przeladuj Nginx (jesli zmieniles konfiguracje)
+            # systemctl reload nginx
+
+            echo "Deploy completed successfully!"

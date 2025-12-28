@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>the_urbaniak - Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-primary: #0a0a0a;
+        --bg-secondary: #1a1a1a;
+        --text-primary: #ffffff;
+        --text-secondary: #a0a0a0;
+        --accent: #00ff41;
+        --accent-dim: #00cc33;
+        --border: #333333;
+        --shadow: rgba(0, 255, 65, 0.2);
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #f5f5f5;
+        --bg-secondary: #ffffff;
+        --text-primary: #0a0a0a;
+        --text-secondary: #666666;
+        --accent: #0066ff;
+        --accent-dim: #0052cc;
+        --border: #e0e0e0;
+        --shadow: rgba(0, 102, 255, 0.15);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "IBM Plex Mono", monospace;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Glitch effect background */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          var(--border) 2px,
+          var(--border) 4px
+        );
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Header / Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        border-bottom: 2px solid var(--border);
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-family: "Syne", sans-serif;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        color: var(--accent);
+        text-transform: uppercase;
+        position: relative;
+      }
+
+      .logo::after {
+        content: "_";
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a::before {
+        content: "[";
+        position: absolute;
+        left: -10px;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a::after {
+        content: "]";
+        position: absolute;
+        right: -10px;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--accent);
+      }
+
+      .nav-links a:hover::before,
+      .nav-links a:hover::after,
+      .nav-links a.active::before,
+      .nav-links a.active::after {
+        opacity: 1;
+      }
+
+      /* Controls */
+      .controls {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .control-btn {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        padding: 8px 16px;
+        cursor: pointer;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 12px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .control-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--accent);
+        transition: left 0.3s ease;
+        z-index: -1;
+      }
+
+      .control-btn:hover::before {
+        left: 0;
+      }
+
+      .control-btn:hover {
+        color: var(--bg-primary);
+        border-color: var(--accent);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 80px;
+      }
+
+      .hero-content {
+        animation: fadeInUp 1s ease;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease 0.2s both;
+      }
+
+      .hero-title {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(48px, 8vw, 120px);
+        font-weight: 800;
+        line-height: 0.9;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: -3px;
+        animation: fadeInUp 1s ease 0.4s both;
+      }
+
+      .hero-title .highlight {
+        color: var(--accent);
+        position: relative;
+        display: inline-block;
+      }
+
+      .hero-description {
+        font-size: 18px;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin-bottom: 40px;
+        animation: fadeInUp 1s ease 0.6s both;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        padding: 18px 40px;
+        background: var(--accent);
+        color: var(--bg-primary);
+        text-decoration: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: 2px solid var(--accent);
+        animation: fadeInUp 1s ease 0.8s both;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-cta::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: var(--bg-primary);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.5s ease, height 0.5s ease;
+      }
+
+      .hero-cta:hover::before {
+        width: 400px;
+        height: 400px;
+      }
+
+      .hero-cta span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-cta:hover {
+        color: var(--accent);
+      }
+
+      /* Section Styling */
+      section {
+        padding: 120px 0;
+        position: relative;
+      }
+
+      .section-header {
+        margin-bottom: 80px;
+      }
+
+      .section-title {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(36px, 5vw, 64px);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60%;
+        height: 3px;
+        background: var(--accent);
+      }
+
+      .section-subtitle {
+        font-size: 16px;
+        color: var(--text-secondary);
+        max-width: 600px;
+      }
+
+      /* Services Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        padding: 40px;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, var(--accent), transparent);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: -1;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+      }
+
+      .service-card:hover::before {
+        opacity: 0.1;
+      }
+
+      .service-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .service-title {
+        font-family: "Syne", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .service-description {
+        color: var(--text-secondary);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      /* Portfolio Grid */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 40px;
+      }
+
+      .portfolio-item {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .portfolio-item::before {
+        content: "VIEW PROJECT";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--bg-primary);
+        background: var(--accent);
+        padding: 15px 30px;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 2px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+      }
+
+      .portfolio-item:hover::before {
+        opacity: 1;
+      }
+
+      .portfolio-image {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, var(--border), var(--bg-primary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        transition: all 0.4s ease;
+      }
+
+      .portfolio-item:hover .portfolio-image {
+        opacity: 0.3;
+      }
+
+      .portfolio-info {
+        padding: 30px;
+      }
+
+      .portfolio-category {
+        font-size: 12px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+
+      .portfolio-title {
+        font-family: "Syne", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .portfolio-description {
+        font-size: 14px;
+        color: var(--text-secondary);
+      }
+
+      /* About Section */
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .about-text h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--accent);
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+        line-height: 1.8;
+      }
+
+      .skills-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 40px;
+      }
+
+      .skill-item {
+        padding: 15px;
+        background: var(--bg-secondary);
+        border-left: 3px solid var(--accent);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Contact Section */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .form-group label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--text-secondary);
+      }
+
+      .form-group input,
+      .form-group textarea {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        padding: 15px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--shadow);
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background: var(--accent);
+        color: var(--bg-primary);
+        border: none;
+        padding: 18px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background: var(--accent-dim);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px var(--shadow);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .contact-item {
+        padding: 30px;
+        background: var(--bg-secondary);
+        border-left: 4px solid var(--accent);
+      }
+
+      .contact-item h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      .contact-item p {
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      .contact-item a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .contact-item a:hover {
+        opacity: 0.7;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border);
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      .footer-text {
+        font-size: 12px;
+        color: var(--text-secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .social-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+
+        nav {
+          padding: 20px;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background: var(--bg-primary);
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 40px 20px;
+          gap: 20px;
+          transition: left 0.3s ease;
+          border-top: 1px solid var(--border);
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero-title {
+          font-size: 48px;
+        }
+
+        .about-content,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Scroll reveal animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Hidden class for language switching */
+      .hidden {
+        display: none !important;
+      }
+
+      /* Cookie Banner */
+      .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-top: 2px solid var(--accent);
+        padding: 20px 40px;
+        z-index: 10000;
+        display: none;
+        animation: slideUp 0.4s ease;
+      }
+
+      .cookie-banner.show {
+        display: block;
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .cookie-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .cookie-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .cookie-text p {
+        color: var(--text-secondary);
+        font-size: 14px;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .cookie-text a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .cookie-text a:hover {
+        text-decoration: underline;
+      }
+
+      .cookie-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .cookie-btn {
+        padding: 12px 25px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid var(--accent);
+      }
+
+      .cookie-btn.accept {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+
+      .cookie-btn.accept:hover {
+        background: var(--accent-dim);
+        border-color: var(--accent-dim);
+      }
+
+      .cookie-btn.reject {
+        background: transparent;
+        color: var(--accent);
+      }
+
+      .cookie-btn.reject:hover {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+
+      @media (max-width: 768px) {
+        .cookie-banner {
+          padding: 15px 20px;
+        }
+
+        .cookie-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .cookie-buttons {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">theurbaniak</div>
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a
+              href="#home"
+              class="nav-link active"
+              data-pl="Start"
+              data-en="Home"
+              data-de="Start"
+              >Start</a
+            >
+          </li>
+          <li>
+            <a
+              href="#services"
+              class="nav-link"
+              data-pl="Usługi"
+              data-en="Services"
+              data-de="Dienstleistungen"
+              >Usługi</a
+            >
+          </li>
+          <li>
+            <a
+              href="#portfolio"
+              class="nav-link"
+              data-pl="Portfolio"
+              data-en="Portfolio"
+              data-de="Portfolio"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="nav-link"
+              data-pl="O mnie"
+              data-en="About"
+              data-de="Über mich"
+              >O mnie</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="nav-link"
+              data-pl="Kontakt"
+              data-en="Contact"
+              data-de="Kontakt"
+              >Kontakt</a
+            >
+          </li>
+        </ul>
+        <div class="controls">
+          <button class="control-btn" id="themeToggle">
+            <span data-pl="Ciemny" data-en="Dark" data-de="Dunkel">Ciemny</span>
+          </button>
+          <select class="control-btn" id="langSwitch">
+            <option value="pl">PL</option>
+            <option value="en">EN</option>
+            <option value="de">DE</option>
+          </select>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div
+              class="hero-subtitle"
+              data-pl="Web Developer & SaaS Creator"
+              data-en="Web Developer & SaaS Creator"
+              data-de="Web-Entwickler & SaaS-Ersteller"
+            >
+              Web Developer & SaaS Creator
+            </div>
+            <h1 class="hero-title">
+              <span data-pl="Tworzę" data-en="Building" data-de="Ich erstelle"
+                >Tworzę</span
+              ><br />
+              <span
+                class="highlight"
+                data-pl="Cyfrową"
+                data-en="Digital"
+                data-de="Digitale"
+                >Cyfrową</span
+              ><br />
+              <span data-pl="Przyszłość" data-en="Future" data-de="Zukunft"
+                >Przyszłość</span
+              >
+            </h1>
+            <p
+              class="hero-description"
+              data-pl="Specjalizuję się w tworzeniu nowoczesnych aplikacji SaaS, stron internetowych w Webflow i WordPress oraz immersyjnych wirtualnych spacerów 360°."
+              data-en="I specialize in creating modern SaaS applications, Webflow & WordPress websites, and immersive 360° virtual tours."
+              data-de="Ich spezialisiere mich auf die Erstellung moderner SaaS-Anwendungen, Webflow- und WordPress-Websites sowie immersiver virtueller 360°-Rundgänge."
+            >
+              Specjalizuję się w tworzeniu nowoczesnych aplikacji SaaS, stron
+              internetowych w Webflow i WordPress oraz immersyjnych wirtualnych
+              spacerów 360°.
+            </p>
+            <a href="#contact" class="hero-cta">
+              <span
+                data-pl="Rozpocznij Projekt"
+                data-en="Start Project"
+                data-de="Projekt starten"
+                >Rozpocznij Projekt</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2
+              class="section-title"
+              data-pl="Usługi"
+              data-en="Services"
+              data-de="Dienstleistungen"
+            >
+              Usługi
+            </h2>
+            <p
+              class="section-subtitle"
+              data-pl="Kompleksowe rozwiązania dla Twojego biznesu w erze cyfrowej"
+              data-en="Comprehensive solutions for your business in the digital age"
+              data-de="Umfassende Lösungen für Ihr Unternehmen im digitalen Zeitalter"
+            >
+              Kompleksowe rozwiązania dla Twojego biznesu w erze cyfrowej
+            </p>
+          </div>
+          <div class="services-grid">
+            <div class="service-card reveal">
+              <div class="service-icon">🎨</div>
+              <h3
+                class="service-title"
+                data-pl="Strony Internetowe"
+                data-en="Websites"
+                data-de="Websites"
+              >
+                Strony Internetowe
+              </h3>
+              <p
+                class="service-description"
+                data-pl="Tworzę responsywne strony internetowe (RWD) poprzedzone starannym projektem graficznym. Pracuję z React, Django, WordPress i TailwindCSS. Każdy projekt dopasowany do potrzeb klienta."
+                data-en="I create responsive websites (RWD) preceded by careful graphic design. I work with React, Django, WordPress and TailwindCSS. Every project tailored to client needs."
+                data-de="Ich erstelle responsive Websites (RWD), denen ein sorgfältiges Grafikdesign vorausgeht. Ich arbeite mit React, Django, WordPress und TailwindCSS. Jedes Projekt ist auf die Kundenbedürfnisse zugeschnitten."
+              >
+                Tworzę responsywne strony internetowe (RWD) poprzedzone starannym projektem graficznym. Pracuję z React, Django, WordPress i TailwindCSS. Każdy projekt dopasowany do potrzeb klienta.
+              </p>
+            </div>
+            <div class="service-card reveal">
+              <div class="service-icon">🔧</div>
+              <h3
+                class="service-title"
+                data-pl="Hosting, Domena & SSL"
+                data-en="Hosting, Domain & SSL"
+                data-de="Hosting, Domain & SSL"
+              >
+                Hosting, Domena & SSL
+              </h3>
+              <p
+                class="service-description"
+                data-pl="Pomagam w doborze i konfiguracji hostingu, rejestracji domeny oraz wdrożeniu certyfikatu SSL. Całościowa obsługa techniczna Twojej strony od A do Z."
+                data-en="I help with hosting selection and configuration, domain registration and SSL certificate implementation. Complete technical support for your website from A to Z."
+                data-de="Ich helfe bei der Hosting-Auswahl und -Konfiguration, Domain-Registrierung und SSL-Zertifikat-Implementierung. Komplette technische Unterstützung für Ihre Website von A bis Z."
+              >
+                Pomagam w doborze i konfiguracji hostingu, rejestracji domeny oraz wdrożeniu certyfikatu SSL. Całościowa obsługa techniczna Twojej strony od A do Z.
+              </p>
+            </div>
+            <div class="service-card reveal">
+              <div class="service-icon">📈</div>
+              <h3
+                class="service-title"
+                data-pl="SEO & Google Ads"
+                data-en="SEO & Google Ads"
+                data-de="SEO & Google Ads"
+              >
+                SEO & Google Ads
+              </h3>
+              <p
+                class="service-description"
+                data-pl="Optymalizuję strony pod kątem wyszukiwarek (SEO) i prowadzę skuteczne kampanie reklamowe w Google Ads. Zwiększ widoczność swojego biznesu w internecie."
+                data-en="I optimize websites for search engines (SEO) and run effective Google Ads advertising campaigns. Increase your business visibility online."
+                data-de="Ich optimiere Websites für Suchmaschinen (SEO) und führe effektive Google Ads-Werbekampagnen durch. Steigern Sie die Online-Sichtbarkeit Ihres Unternehmens."
+              >
+                Optymalizuję strony pod kątem wyszukiwarek (SEO) i prowadzę skuteczne kampanie reklamowe w Google Ads. Zwiększ widoczność swojego biznesu w internecie.
+              </p>
+            </div>
+            <div class="service-card reveal">
+              <div class="service-icon">📍</div>
+              <h3
+                class="service-title"
+                data-pl="Wizytówka Google & Szkolenia"
+                data-en="Google Business & Training"
+                data-de="Google Business & Schulungen"
+              >
+                Wizytówka Google & Szkolenia
+              </h3>
+              <p
+                class="service-description"
+                data-pl="Pomagam założyć i zoptymalizować wizytówkę Google Moja Firma. Uczę jak samodzielnie edytować stronę i zarządzać treścią. Wsparcie po wdrożeniu."
+                data-en="I help set up and optimize Google My Business profile. I teach how to edit your website and manage content independently. Post-launch support."
+                data-de="Ich helfe beim Einrichten und Optimieren des Google My Business-Profils. Ich lehre, wie Sie Ihre Website bearbeiten und Inhalte selbstständig verwalten. Support nach dem Launch."
+              >
+                Pomagam założyć i zoptymalizować wizytówkę Google Moja Firma. Uczę jak samodzielnie edytować stronę i zarządzać treścią. Wsparcie po wdrożeniu.
+              </p>
+            </div>
+            <div class="service-card reveal">
+              <div class="service-icon">🌐</div>
+              <h3
+                class="service-title"
+                data-pl="Wirtualne Spacery 360°"
+                data-en="360° Virtual Tours"
+                data-de="360°-Virtuelle Rundgänge"
+              >
+                Wirtualne Spacery 360°
+              </h3>
+              <p
+                class="service-description"
+                data-pl="Wykorzystując kamerę Insta360, tworzę immersyjne wirtualne spacery dla hoteli, galerii, nieruchomości i biznesów."
+                data-en="Using Insta360 camera, I create immersive virtual tours for hotels, galleries, real estate, and businesses."
+                data-de="Mit der Insta360-Kamera erstelle ich immersive virtuelle Rundgänge für Hotels, Galerien, Immobilien und Unternehmen."
+              >
+                Wykorzystując kamerę Insta360, tworzę immersyjne wirtualne spacery dla hoteli, galerii, nieruchomości i biznesów.
+              </p>
+            </div>
+            <div class="service-card reveal">
+              <div class="service-icon">⚡</div>
+              <h3
+                class="service-title"
+                data-pl="Aplikacje Webowe"
+                data-en="Web Applications"
+                data-de="Webanwendungen"
+              >
+                Aplikacje Webowe
+              </h3>
+              <p
+                class="service-description"
+                data-pl="Tworzę skalowalne aplikacje webowe w React i Django. Deploy na Docker i serwery Linux. Od MVP po rozbudowane systemy."
+                data-en="I create scalable web applications in React and Django. Deployment on Docker and Linux servers. From MVP to complex systems."
+                data-de="Ich erstelle skalierbare Webanwendungen in React und Django. Deployment auf Docker und Linux-Servern. Von MVP bis zu komplexen Systemen."
+              >
+                Tworzę skalowalne aplikacje webowe w React i Django. Deploy na Docker i serwery Linux. Od MVP po rozbudowane systemy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section id="portfolio">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 class="section-title">Portfolio</h2>
+            <p
+              class="section-subtitle"
+              data-pl="Wybrane projekty, które stworzyłem dla moich klientów"
+              data-en="Selected projects I've created for my clients"
+              data-de="Ausgewählte Projekte, die ich für meine Kunden erstellt habe"
+            >
+              Wybrane projekty, które stworzyłem dla moich klientów
+            </p>
+          </div>
+          <div class="portfolio-grid">
+            <a href="https://www.holymiod.pl" target="_blank" rel="noopener noreferrer" class="portfolio-item reveal" style="text-decoration: none; color: inherit;">
+              <div class="portfolio-image">🍯</div>
+              <div class="portfolio-info">
+                <div class="portfolio-category">WordPress</div>
+                <h3
+                  class="portfolio-title"
+                  data-pl="HolyMiod"
+                  data-en="HolyMiod"
+                  data-de="HolyMiod"
+                >
+                  HolyMiod
+                </h3>
+                <p
+                  class="portfolio-description"
+                  data-pl="Strona internetowa dla producenta naturalnego miodu - sklep online z produktami pasiecznymi"
+                  data-en="Website for natural honey producer - online store with apiary products"
+                  data-de="Website für natürlichen Honigproduzenten - Online-Shop mit Imkereiprodukten"
+                >
+                  Strona internetowa dla producenta naturalnego miodu - sklep online z produktami pasiecznymi
+                </p>
+              </div>
+            </a>
+            <a href="https://www.laserarenapoznan.eu" target="_blank" rel="noopener noreferrer" class="portfolio-item reveal" style="text-decoration: none; color: inherit;">
+              <div class="portfolio-image">🎯</div>
+              <div class="portfolio-info">
+                <div class="portfolio-category">Website</div>
+                <h3
+                  class="portfolio-title"
+                  data-pl="Laser Arena Poznan"
+                  data-en="Laser Arena Poznan"
+                  data-de="Laser Arena Poznan"
+                >
+                  Laser Arena Poznan
+                </h3>
+                <p
+                  class="portfolio-description"
+                  data-pl="Strona centrum rozrywki laserowej - rezerwacje online, galeria i informacje o atrakcjach"
+                  data-en="Laser entertainment center website - online bookings, gallery and attractions info"
+                  data-de="Website des Laser-Unterhaltungszentrums - Online-Buchungen, Galerie und Attraktionen"
+                >
+                  Strona centrum rozrywki laserowej - rezerwacje online, galeria i informacje o atrakcjach
+                </p>
+              </div>
+            </a>
+            <a href="https://www.modus-vivendi.eu" target="_blank" rel="noopener noreferrer" class="portfolio-item reveal" style="text-decoration: none; color: inherit;">
+              <div class="portfolio-image">🏠</div>
+              <div class="portfolio-info">
+                <div class="portfolio-category">Website</div>
+                <h3
+                  class="portfolio-title"
+                  data-pl="Modus Vivendi"
+                  data-en="Modus Vivendi"
+                  data-de="Modus Vivendi"
+                >
+                  Modus Vivendi
+                </h3>
+                <p
+                  class="portfolio-description"
+                  data-pl="Profesjonalna strona firmowa z nowoczesnym designem i responsywnym layoutem"
+                  data-en="Professional corporate website with modern design and responsive layout"
+                  data-de="Professionelle Unternehmenswebsite mit modernem Design und responsivem Layout"
+                >
+                  Profesjonalna strona firmowa z nowoczesnym designem i responsywnym layoutem
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2
+              class="section-title"
+              data-pl="O mnie"
+              data-en="About Me"
+              data-de="Über mich"
+            >
+              O mnie
+            </h2>
+          </div>
+          <div class="about-content">
+            <div class="about-text reveal">
+              <h3
+                data-pl="Kacper Urbaniak"
+                data-en="Kacper Urbaniak"
+                data-de="Kacper Urbaniak"
+              >
+                Kacper Urbaniak
+              </h3>
+              <p
+                data-pl="Jestem web developerem z wieloletnim doświadczeniem w tworzeniu nowoczesnych rozwiązań cyfrowych. Specjalizuję się w budowaniu responsywnych stron internetowych (RWD) poprzedzonych starannym projektem graficznym. Dbam o każdy szczegół - od UX/UI po wydajność i optymalizację."
+                data-en="I'm a web developer with years of experience creating modern digital solutions. I specialize in building responsive websites (RWD) preceded by careful graphic design. I care about every detail - from UX/UI to performance and optimization."
+                data-de="Ich bin ein Webentwickler mit langjähriger Erfahrung in der Erstellung moderner digitaler Lösungen. Ich spezialisiere mich auf responsive Websites (RWD), denen ein sorgfältiges Grafikdesign vorausgeht. Ich achte auf jedes Detail - von UX/UI bis hin zu Leistung und Optimierung."
+              >
+                Jestem web developerem z wieloletnim doświadczeniem w tworzeniu nowoczesnych rozwiązań cyfrowych. Specjalizuję się w budowaniu responsywnych stron internetowych (RWD) poprzedzonych starannym projektem graficznym. Dbam o każdy szczegół - od UX/UI po wydajność i optymalizację.
+              </p>
+              <p
+                data-pl="Posiadam doświadczenie w pracy z Docker, Django, React, TailwindCSS oraz WordPress. Oprócz tworzenia stron zajmuję się także pozycjonowaniem SEO oraz prowadzeniem kampanii marketingowych w Google Ads. Łączę wiedzę techniczną z kreatywnym podejściem, dostarczając kompleksowe rozwiązania dla biznesu."
+                data-en="I have experience working with Docker, Django, React, TailwindCSS and WordPress. Besides creating websites, I also handle SEO positioning and run Google Ads marketing campaigns. I combine technical knowledge with a creative approach, delivering comprehensive business solutions."
+                data-de="Ich habe Erfahrung in der Arbeit mit Docker, Django, React, TailwindCSS und WordPress. Neben der Erstellung von Websites kümmere ich mich auch um SEO-Positionierung und führe Google Ads-Marketingkampagnen durch. Ich kombiniere technisches Wissen mit einem kreativen Ansatz und liefere umfassende Geschäftslösungen."
+              >
+                Posiadam doświadczenie w pracy z Docker, Django, React, TailwindCSS oraz WordPress. Oprócz tworzenia stron zajmuję się także pozycjonowaniem SEO oraz prowadzeniem kampanii marketingowych w Google Ads. Łączę wiedzę techniczną z kreatywnym podejściem, dostarczając kompleksowe rozwiązania dla biznesu.
+              </p>
+              <div class="skills-list">
+                <div class="skill-item">React</div>
+                <div class="skill-item">Django</div>
+                <div class="skill-item">TailwindCSS</div>
+                <div class="skill-item">WordPress</div>
+                <div class="skill-item">Docker</div>
+                <div class="skill-item">SEO & Google Ads</div>
+              </div>
+            </div>
+            <div class="about-image reveal">
+              <div class="portfolio-image" style="height: 500px">👨‍💻</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2
+              class="section-title"
+              data-pl="Kontakt"
+              data-en="Contact"
+              data-de="Kontakt"
+            >
+              Kontakt
+            </h2>
+            <p
+              class="section-subtitle"
+              data-pl="Masz projekt? Skontaktujmy się!"
+              data-en="Have a project? Let's get in touch!"
+              data-de="Haben Sie ein Projekt? Lassen Sie uns in Kontakt treten!"
+            >
+              Masz projekt? Skontaktujmy się!
+            </p>
+          </div>
+          <div class="contact-grid">
+            <form class="contact-form reveal" action="https://formsubmit.co/theurbaniak@gmail.com" method="POST">
+              <!-- FormSubmit configuration -->
+              <input type="hidden" name="_subject" value="Nowa wiadomosc ze strony theurbaniak.cloud">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="https://theurbaniak.cloud/index.html#contact">
+              <input type="text" name="_honey" style="display:none">
+
+              <div class="form-group">
+                <label
+                  data-pl="Imię i nazwisko"
+                  data-en="Full Name"
+                  data-de="Vollständiger Name"
+                  >Imię i nazwisko</label
+                >
+                <input type="text" name="name" required />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label data-pl="Wiadomość" data-en="Message" data-de="Nachricht"
+                  >Wiadomość</label
+                >
+                <textarea name="message" required></textarea>
+              </div>
+              <!-- Checkbox RODO -->
+              <div class="form-group" style="flex-direction: row; align-items: flex-start; gap: 10px;">
+                <input type="checkbox" id="gdprConsent" name="gdpr_consent" required style="width: auto; margin-top: 5px;">
+                <label for="gdprConsent" style="font-size: 12px; text-transform: none; letter-spacing: 0;"
+                  data-pl="Wyrazam zgode na przetwarzanie moich danych osobowych zgodnie z Polityka Prywatnosci w celu odpowiedzi na moje zapytanie."
+                  data-en="I consent to the processing of my personal data in accordance with the Privacy Policy in order to respond to my inquiry."
+                  data-de="Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der Datenschutzrichtlinie zu, um auf meine Anfrage zu antworten."
+                >Wyrazam zgode na przetwarzanie moich danych osobowych zgodnie z <a href="polityka-prywatnosci.html" style="color: var(--accent);">Polityka Prywatnosci</a> w celu odpowiedzi na moje zapytanie.</label>
+              </div>
+              <button type="submit" class="submit-btn">
+                <span
+                  data-pl="Wyślij wiadomość"
+                  data-en="Send Message"
+                  data-de="Nachricht senden"
+                  >Wyślij wiadomość</span
+                >
+              </button>
+            </form>
+            <div class="contact-info">
+              <div class="contact-item reveal">
+                <h3>Email</h3>
+                <p>
+                  <a href="mailto:theurbaniak@gmail.com">theurbaniak@gmail.com</a>
+                </p>
+              </div>
+              <div class="contact-item reveal">
+                <h3 data-pl="Telefon" data-en="Phone" data-de="Telefon">
+                  Telefon
+                </h3>
+                <p><a href="tel:+48691545741">+48 691 545 741</a></p>
+              </div>
+              <div class="contact-item reveal">
+                <h3 data-pl="Lokalizacja" data-en="Location" data-de="Standort">
+                  Lokalizacja
+                </h3>
+                <p>Gdynia, Polska</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-text">
+          <span
+            data-pl="© 2024 Kacper Urbaniak. Wszelkie prawa zastrzeżone."
+            data-en="© 2024 Kacper Urbaniak. All rights reserved."
+            data-de="© 2024 Kacper Urbaniak. Alle Rechte vorbehalten."
+          >
+            © 2024 Kacper Urbaniak. Wszelkie prawa zastrzeżone.
+          </span>
+          <span style="margin-left: 20px;">
+            <a href="polityka-prywatnosci.html" style="color: var(--text-secondary); text-decoration: none; font-size: 12px;"
+               data-pl="Polityka Prywatnosci"
+               data-en="Privacy Policy"
+               data-de="Datenschutzrichtlinie"
+            >Polityka Prywatnosci</a>
+          </span>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn">💼</a>
+          <a href="#" aria-label="GitHub">👨‍💻</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+      <div class="cookie-content">
+        <div class="cookie-text">
+          <p data-pl="Ta strona wykorzystuje pliki cookies do prawidlowego dzialania i analizy ruchu. Korzystajac ze strony, zgadzasz sie na ich uzycie. Wiecej informacji znajdziesz w naszej"
+             data-en="This website uses cookies for proper functioning and traffic analysis. By using the site, you agree to their use. More information can be found in our"
+             data-de="Diese Website verwendet Cookies für den ordnungsgemäßen Betrieb und die Verkehrsanalyse. Durch die Nutzung der Website stimmen Sie deren Verwendung zu. Weitere Informationen finden Sie in unserer">
+            Ta strona wykorzystuje pliki cookies do prawidlowego dzialania i analizy ruchu. Korzystajac ze strony, zgadzasz sie na ich uzycie. Wiecej informacji znajdziesz w naszej
+            <a href="polityka-prywatnosci.html" data-pl="Polityce Prywatnosci" data-en="Privacy Policy" data-de="Datenschutzrichtlinie">Polityce Prywatnosci</a>.
+          </p>
+        </div>
+        <div class="cookie-buttons">
+          <button class="cookie-btn accept" id="acceptCookies"
+                  data-pl="Akceptuje"
+                  data-en="Accept"
+                  data-de="Akzeptieren">Akceptuje</button>
+          <button class="cookie-btn reject" id="rejectCookies"
+                  data-pl="Odrzucam"
+                  data-en="Reject"
+                  data-de="Ablehnen">Odrzucam</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+      const html = document.documentElement;
+
+      // Check for saved theme preference or default to dark
+      const currentTheme = localStorage.getItem("theme") || "dark";
+      html.setAttribute("data-theme", currentTheme);
+      updateThemeButton();
+
+      themeToggle.addEventListener("click", () => {
+        const theme =
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        updateThemeButton();
+      });
+
+      function updateThemeButton() {
+        const theme = html.getAttribute("data-theme");
+        const lang = document.getElementById("langSwitch").value;
+        const text =
+          theme === "dark"
+            ? lang === "pl"
+              ? "Jasny"
+              : lang === "en"
+              ? "Light"
+              : "Hell"
+            : lang === "pl"
+            ? "Ciemny"
+            : lang === "en"
+            ? "Dark"
+            : "Dunkel";
+        themeToggle.querySelector("span").textContent = text;
+      }
+
+      // Language Switcher
+      const langSwitch = document.getElementById("langSwitch");
+      const currentLang = localStorage.getItem("language") || "pl";
+      langSwitch.value = currentLang;
+      updateLanguage(currentLang);
+
+      langSwitch.addEventListener("change", (e) => {
+        const lang = e.target.value;
+        localStorage.setItem("language", lang);
+        updateLanguage(lang);
+        updateThemeButton();
+      });
+
+      function updateLanguage(lang) {
+        document.querySelectorAll("[data-pl]").forEach((element) => {
+          if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+            element.placeholder = element.getAttribute(`data-${lang}`);
+          } else {
+            element.textContent = element.getAttribute(`data-${lang}`);
+          }
+        });
+        document.documentElement.lang = lang;
+      }
+
+      // Mobile Menu
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Active Navigation Link
+      window.addEventListener("scroll", () => {
+        let current = "";
+        const sections = document.querySelectorAll("section");
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Scroll Reveal Animation
+      const reveals = document.querySelectorAll(".reveal");
+
+      function revealOnScroll() {
+        reveals.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll(); // Initial check
+
+      // Form Submission - handled by FormSubmit
+
+      // Cookie Banner
+      const cookieBanner = document.getElementById("cookieBanner");
+      const acceptCookies = document.getElementById("acceptCookies");
+      const rejectCookies = document.getElementById("rejectCookies");
+
+      // Check if user has already made a choice
+      if (!localStorage.getItem("cookieConsent")) {
+        setTimeout(() => {
+          cookieBanner.classList.add("show");
+        }, 1000);
+      }
+
+      acceptCookies.addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "accepted");
+        cookieBanner.classList.remove("show");
+      });
+
+      rejectCookies.addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "rejected");
+        cookieBanner.classList.remove("show");
+        // Clear non-essential cookies
+        document.cookie.split(";").forEach((c) => {
+          if (!c.trim().startsWith("cookieConsent")) {
+            document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
