@@ -262,7 +262,7 @@
       }
 
       .hero-description {
-        font-size: 18px;
+        font-size: clamp(14px, 4vw, 18px);
         color: var(--text-secondary);
         max-width: 600px;
         margin-bottom: 40px;
@@ -410,7 +410,7 @@
       /* Portfolio Grid */
       .portfolio-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
         gap: 40px;
       }
 
@@ -674,27 +674,50 @@
         cursor: pointer;
       }
 
-      /* Responsive */
+      /* Responsive - Tablets */
+      @media (max-width: 1024px) {
+        .container {
+          padding: 0 30px;
+        }
+
+        nav {
+          padding: 20px 30px;
+        }
+
+        .nav-links {
+          gap: 25px;
+        }
+
+        section {
+          padding: 80px 0;
+        }
+
+        .section-header {
+          margin-bottom: 50px;
+        }
+      }
+
+      /* Responsive - Mobile */
       @media (max-width: 768px) {
         .container {
           padding: 0 20px;
         }
 
         nav {
-          padding: 20px;
+          padding: 15px 20px;
         }
 
         .nav-links {
           position: fixed;
-          top: 70px;
+          top: 60px;
           left: -100%;
           width: 100%;
-          height: calc(100vh - 70px);
+          height: calc(100vh - 60px);
           background: var(--bg-primary);
           flex-direction: column;
           justify-content: flex-start;
-          padding: 40px 20px;
-          gap: 20px;
+          padding: 30px 20px;
+          gap: 15px;
           transition: left 0.3s ease;
           border-top: 1px solid var(--border);
         }
@@ -707,8 +730,30 @@
           display: block;
         }
 
+        .hero {
+          min-height: auto;
+          padding-top: 100px;
+          padding-bottom: 60px;
+        }
+
         .hero-title {
-          font-size: 48px;
+          font-size: clamp(36px, 10vw, 48px);
+          letter-spacing: -1px;
+        }
+
+        .hero-cta {
+          padding: 15px 30px;
+          font-size: 13px;
+          width: 100%;
+          text-align: center;
+        }
+
+        section {
+          padding: 60px 0;
+        }
+
+        .section-header {
+          margin-bottom: 40px;
         }
 
         .about-content,
@@ -719,14 +764,119 @@
 
         .portfolio-grid {
           grid-template-columns: 1fr;
+          gap: 25px;
         }
 
         .services-grid {
           grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .service-card {
+          padding: 25px;
         }
 
         .skills-list {
           grid-template-columns: 1fr;
+        }
+
+        .about-image .portfolio-image {
+          height: 300px !important;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+          padding: 0 20px;
+        }
+
+        .footer-text {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .footer-text span {
+          margin-left: 0 !important;
+        }
+      }
+
+      /* Responsive - Small phones */
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 15px;
+        }
+
+        nav {
+          padding: 12px 15px;
+        }
+
+        .logo {
+          font-size: 20px;
+        }
+
+        .hero-title {
+          font-size: clamp(32px, 9vw, 40px);
+        }
+
+        .hero-subtitle {
+          font-size: 12px;
+          letter-spacing: 2px;
+        }
+
+        .hero-cta {
+          padding: 14px 25px;
+          font-size: 12px;
+        }
+
+        .section-title {
+          font-size: clamp(28px, 7vw, 36px);
+        }
+
+        .service-card {
+          padding: 20px;
+        }
+
+        .service-icon {
+          font-size: 36px;
+        }
+
+        .service-title {
+          font-size: 18px;
+        }
+
+        .portfolio-image {
+          height: 200px;
+        }
+
+        .portfolio-info {
+          padding: 20px;
+        }
+
+        .portfolio-title {
+          font-size: 18px;
+        }
+
+        .contact-item {
+          padding: 20px;
+        }
+
+        .cookie-banner {
+          padding: 12px 15px;
+        }
+
+        .cookie-text {
+          min-width: auto;
+        }
+
+        .cookie-text p {
+          font-size: 12px;
+        }
+
+        .cookie-btn {
+          padding: 10px 20px;
+          font-size: 11px;
         }
       }
 
@@ -1324,22 +1474,10 @@
           <div class="contact-grid">
             <form
               class="contact-form reveal"
-              action="https://formsubmit.co/theurbaniak@gmail.com"
+              action="/send-email.php"
               method="POST"
             >
-              <!-- FormSubmit configuration -->
-              <input
-                type="hidden"
-                name="_subject"
-                value="Nowa wiadomosc ze strony theurbaniak.cloud"
-              />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-              <input
-                type="hidden"
-                name="_next"
-                value="https://theurbaniak.cloud/index.html#contact"
-              />
+              <!-- Honeypot for spam protection -->
               <input type="text" name="_honey" style="display: none" />
 
               <div class="form-group">
@@ -1421,7 +1559,7 @@
                 <h3 data-pl="Lokalizacja" data-en="Location" data-de="Standort">
                   Lokalizacja
                 </h3>
-                <p>Gdynia, Polska</p>
+                <p>Poznań, Polska</p>
               </div>
             </div>
           </div>
@@ -1437,7 +1575,7 @@
             data-en="© 2024 Kacper Urbaniak. All rights reserved."
             data-de="© 2024 Kacper Urbaniak. Alle Rechte vorbehalten."
           >
-            © 2024 Kacper Urbaniak. Wszelkie prawa zastrzeżone.
+            © 2025 Kacper Urbaniak. Wszelkie prawa zastrzeżone.
           </span>
           <span style="margin-left: 20px">
             <a
@@ -1638,7 +1776,29 @@
       window.addEventListener("scroll", revealOnScroll);
       revealOnScroll(); // Initial check
 
-      // Form Submission - handled by FormSubmit
+      // Form Submission - check for success/error messages
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('sent') === '1') {
+        const lang = localStorage.getItem('language') || 'pl';
+        const messages = {
+          pl: 'Dziekuje! Twoja wiadomosc zostala wyslana. Odpowiem najszybciej jak to mozliwe.',
+          en: 'Thank you! Your message has been sent. I will respond as soon as possible.',
+          de: 'Vielen Dank! Ihre Nachricht wurde gesendet. Ich werde so schnell wie möglich antworten.'
+        };
+        alert(messages[lang]);
+        // Remove query params from URL
+        window.history.replaceState({}, document.title, window.location.pathname + '#contact');
+      }
+      if (urlParams.get('error')) {
+        const lang = localStorage.getItem('language') || 'pl';
+        const messages = {
+          pl: 'Przepraszam, wystapil blad podczas wysylania wiadomosci. Prosze sprobowac ponownie lub skontaktowac sie bezposrednio przez email.',
+          en: 'Sorry, an error occurred while sending the message. Please try again or contact directly via email.',
+          de: 'Entschuldigung, beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.'
+        };
+        alert(messages[lang]);
+        window.history.replaceState({}, document.title, window.location.pathname + '#contact');
+      }
 
       // Cookie Banner
       const cookieBanner = document.getElementById("cookieBanner");
