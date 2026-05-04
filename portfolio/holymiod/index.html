@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HolyMiod — theurbaniak</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      :root { --bg: #0a0a0a; --accent: #00ff41; --border: #333; --text: #fff; --dim: #a0a0a0; }
+      body { font-family: "IBM Plex Mono", monospace; background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+      .bar { display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 56px; min-height: 56px; border-bottom: 1px solid var(--border); }
+      .bar-left { display: flex; align-items: center; gap: 20px; }
+      .back { color: var(--dim); text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: color .2s; }
+      .back:hover { color: var(--accent); }
+      .back::before { content: "← "; }
+      .sep { color: var(--border); }
+      .name { font-family: "Syne", sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; }
+      .bar-right { display: flex; align-items: center; gap: 14px; }
+      .tag { font-size: 11px; color: var(--accent); border: 1px solid var(--accent); padding: 3px 10px; text-transform: uppercase; letter-spacing: 1px; }
+      .live { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--bg); background: var(--accent); padding: 6px 16px; text-decoration: none; font-weight: 600; }
+      .live:hover { opacity: .85; }
+      .wrap { flex: 1; position: relative; }
+      iframe { width: 100%; height: 100%; border: none; display: block; }
+      .fb { display: none; position: absolute; inset: 0; align-items: center; justify-content: center; flex-direction: column; gap: 20px; text-align: center; padding: 40px; background: var(--bg); }
+      .fb.show { display: flex; }
+      .fb h2 { font-family: "Syne", sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; }
+      .fb p { color: var(--dim); font-size: 14px; max-width: 400px; line-height: 1.7; }
+      .fb a { padding: 14px 32px; background: var(--accent); color: var(--bg); text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+  </head>
+  <body>
+    <div class="bar">
+      <div class="bar-left">
+        <a href="/#portfolio" class="back">Portfolio</a>
+        <span class="sep">/</span>
+        <span class="name">HolyMiod</span>
+      </div>
+      <div class="bar-right">
+        <span class="tag">AI · E-commerce</span>
+        <a href="https://www.holymiod.pl" target="_blank" rel="noopener" class="live">Visit live ↗</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <iframe id="f" src="https://www.holymiod.pl" title="HolyMiod" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+      <div class="fb" id="fb">
+        <h2>HolyMiod</h2>
+        <p>This site can't be embedded due to security restrictions. Visit the live project directly.</p>
+        <a href="https://www.holymiod.pl" target="_blank" rel="noopener">Open HolyMiod ↗</a>
+      </div>
+    </div>
+    <script>
+      const f = document.getElementById('f'), fb = document.getElementById('fb');
+      f.addEventListener('error', () => { f.style.display='none'; fb.classList.add('show'); });
+      setTimeout(() => { try { const d = f.contentDocument||f.contentWindow.document; if (!d||d.URL==='about:blank') { f.style.display='none'; fb.classList.add('show'); } } catch(e) {} }, 3000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historia Fortu II - Laser Arena Poznan</title>
+    <meta name="description" content="Poznaj fascynujaca historie Fortu II w Poznaniu - od pruskich fortyfikacji z 1878 roku po nowoczesna arene LaserTag." />
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    <link rel="apple-touch-icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="../index.html" class="nav-brand">
+          <img src="../images/laser-arena-poznan-logo-small.svg" alt="Laser Arena Poznan Logo" class="nav-logo" />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="../index.html#o-nas" class="nav-link">O nas</a>
+          <a href="../index.html#oferta" class="nav-link">Oferta</a>
+          <a href="../index.html#cennik" class="nav-link">Cennik</a>
+          <a href="../rezerwacje.html" class="nav-link" hidden>Rezerwacje</a>
+          <a href="../kalendarz.html" class="nav-link">Kalendarz</a>
+          <a href="../wyniki.html" class="nav-link" hidden>Wyniki</a>
+          <a href="../galeria.html" class="nav-link">Galeria</a>
+          <a href="../faq.html" class="nav-link">F.A.Q.</a>
+          <a href="../blog.html" class="nav-link active">Blog</a>
+          <a href="../index.html#kontakt" class="nav-link">Kontakt</a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twoj koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="../rezerwacje.html" class="btn btn-primary cart-checkout-btn">Przejdz do rezerwacji</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Article Content -->
+    <article class="blog-article page-section">
+      <div class="container">
+        <div class="article-header">
+          <a href="../blog.html" class="back-link">&larr; Powrot do bloga</a>
+          <div class="article-category">Historia</div>
+          <h1 class="article-title">Historia Fortu II - od 1878 do dzis</h1>
+          <div class="article-meta">
+            <span class="article-date">15.12.2025</span>
+            <span class="article-author">Admin</span>
+            <span class="article-reading-time">8 min czytania</span>
+          </div>
+        </div>
+
+        <div class="article-content">
+          <p class="article-lead">
+            Fort II w Poznaniu to nie tylko zabytek architektury militarnej - to zywej historii pomnik, ktory przez niemal 150 lat byl swiadkiem najwazniejszych wydarzen w dziejach miasta i kraju. Dzis, jako siedziba Laser Arena Poznan, laczy przeszlosc z nowoczesna rozrywka.
+          </p>
+
+          <h2>Powstanie Twierdzy Poznan</h2>
+          <p>
+            W drugiej polowie XIX wieku Prusy, obawiajac sie konfliktu z Rosja oraz rosnacego polskiego ruchu niepodleglosciowego, podjely decyzje o przeksztalceniu Poznania w potezna twierdze. Strategiczne polozenie miasta na pograniczu prusko-rosyjskim, obecnosc rzeki Warty oraz korzystne uksztaltowanie terenu sprawily, ze Poznan stal sie idealnym miejscem na budowe jednego z najwiekszych systemow fortyfikacyjnych w Europie.
+          </p>
+
+          <h2>Budowa Fortu II (1878-1882)</h2>
+          <p>
+            Fort II zostal wybudowany w latach 1878-1882 jako jeden z 18 fortow wchodzacych w sklad zewnetrznego pierscienia Twierdzy Poznan. Prace budowlane prowadzila firma Degen Forsten und Wilhelmi, a calkowity koszt budowy wyniose 2 miliony marek - ogromna sume jak na tamte czasy.
+          </p>
+          <p>
+            Co ciekawe, przy budowie fortu wykorzystano prace jencow francuskich, wziętych do niewoli podczas wojny francusko-pruskiej (1870-1871). Fort zostal zaprojektowany wedlug standardowego projektu pruskiego generala von Biehlera, Generalnego Inspektora Twierdz, i zbudowany na planie pieciokąta - charakterystycznym dla wszystkich poznańskich fortów glównych.
+          </p>
+
+          <h2>Nazwa i patroni</h2>
+          <p>
+            Poczatkowo fort nosil nazwe Stülpnagel, na czesc pruskiego generala Friedricha von Stülpnagela. Po odzyskaniu przez Polske niepodleglosci, w 1931 roku, zmieniono patronow na polskich - Fort II otrzymal imie Aleksandra Kraszewskiego, polskiego patrioty i dzialacza niepodleglosciowego.
+          </p>
+
+          <h2>II Wojna Swiatowa</h2>
+          <p>
+            W 1941 roku fort zostal zajetyw przez firme Telefunken Gesellschaft für drahtlose Telegraphie, ktora ulokovala tam produkcje wojskowa. Jeden z najbardziej dramatycznych rozdzialow w historii fortu rozegral sie podczas bitwy o Poznan w 1945 roku.
+          </p>
+          <p>
+            Od 4 do 7 lutego 1945 roku 1083 pulk piechoty Armii Czerwonej prowadzil zaciekle walki o zdobycie fortu, nacierajac od poludniowego wschodu (po wczesniejszym zdobyciu Fortu Ia) i zachodu. Grube mury i przemyslana konstrukcja fortu sprawily, ze walki byly niezwykle zaciekle i trwaly kilka dni.
+          </p>
+
+          <h2>Powojenne losy</h2>
+          <p>
+            Po zakonczeniu II wojny swiatowej fort byl uzytkowany kolejno przez wojsko i milicje. W pozniejszych latach pelnil funkcje magazynowe, stopniowo tracac swoje pierwotne znaczenie militarne.
+          </p>
+          <p>
+            W 1983 roku, wraz z innymi zachowanymi fortami Twierdzy Poznan, Fort II zostal wpisany do rejestru zabytków. Teren fortu wchodzi rowniez w sklad obszaru Natura 2000 jako obszar specjalnej ochrony "Fortyfikacje w Poznaniu" (symbol PLH300005), co swiadczy o jego wartosci nie tylko historycznej, ale i przyrodniczej.
+          </p>
+
+          <h2>Nowe zycie - Laser Arena Poznan</h2>
+          <p>
+            Dzis Fort II przezywa swoje drugie zycie jako siedziba Laser Arena Poznan. Grube, ceglane mury, ktore niegdys mialy chronic przed ogniem artyleryjskim, teraz tworza niepowtarzalny klimat dla rozgrywek LaserTag. Korytarze, kazamaty i pomieszczenia magazynowe przeksztalcone zostaly w ekscytujaca arene, gdzie gracze moga poczuc sie jak prawdziwi zolnierze na polu bitwy.
+          </p>
+          <p>
+            Lokalizacja w historycznym forcie to nie tylko unikalna atmosfera - to takze mozliwosc dotknięcia historii. Podczas rozgrywki uczestnicy przemierzaja te same korytarze, ktorymi ponad 140 lat temu chodzili pruscy zolnierze, a pozniej polscy i radzieccy wojskowi.
+          </p>
+
+          <h2>Twierdza Poznan dzis</h2>
+          <p>
+            Fort II to tylko jeden z elementow ogromnego systemu fortyfikacyjnego Twierdzy Poznan. Caly zewnetrzny pierscien fortow zostal zachowany niemal w calosci i stanowi jedna z najwiekszych atrakcji turystycznych miasta. Poznanski Szlak Forteczny pozwala zwiedzic wiele z tych obiektow i poznac fascynujaca historie pruskich fortyfikacji.
+          </p>
+
+          <div class="article-cta">
+            <h3>Poczuj historie na wlasnej skorze!</h3>
+            <p>Przyjdz do Laser Arena Poznan i przezij emocjonujaca rozgrywke w murach prawdziwego, XIX-wiecznego fortu. To niepowtarzalne polaczenie historii z nowoczesna rozrywka!</p>
+            <a href="../rezerwacje.html" class="btn btn-primary">Zarezerwuj gre</a>
+          </div>
+        </div>
+
+        <div class="article-footer">
+          <div class="article-tags">
+            <span class="tag">Historia</span>
+            <span class="tag">Fort II</span>
+            <span class="tag">Twierdza Poznan</span>
+            <span class="tag">Zabytki</span>
+          </div>
+          <div class="article-share">
+            <span>Udostepnij:</span>
+            <a href="#" class="share-link" title="Facebook">FB</a>
+            <a href="#" class="share-link" title="Twitter">X</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2025 Laser Arena Poznan. Wszelkie prawa zastrzezone.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regulamin - Laser Arena Poznań</title>
+    <meta
+      name="description"
+      content="Regulamin Laser Arena Poznań - zasady korzystania z usługi LaserTag w Forcie II."
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16691092408"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      // Konfiguracja Google Ads
+      gtag("config", "AW-16691092408");
+
+      // Konfiguracja Google Analytics 4
+      gtag("config", "G-8MMF96GQCJ");
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-brand">
+          <img
+            src="images/laser-arena-poznan-logo-small.svg"
+            alt="Laser Arena Poznań Logo"
+            class="nav-logo"
+          />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html#o-nas" class="nav-link">O nas</a>
+          <a href="index.html#oferta" class="nav-link">Oferta</a>
+          <a href="index.html#cennik" class="nav-link">Cennik</a>
+          <a href="rezerwacje.html" class="nav-link" hidden>Rezerwacje</a>
+          <a href="kalendarz.html" class="nav-link">Kalendarz</a>
+          <a href="wyniki.html" class="nav-link" hidden>Wyniki</a>
+          <a href="galeria.html" class="nav-link">Galeria</a>
+          <a href="faq.html" class="nav-link">F.A.Q.</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twój koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="rezerwacje.html" class="btn btn-primary cart-checkout-btn"
+              >Przejdź do rezerwacji</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Regulamin Section -->
+    <section class="section legal-section">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="section-title">Regulamin</h1>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="legal-content">
+          <h2>Regulamin Laser Arena Poznań</h2>
+
+          <h3>§ 1. Postanowienia ogólne</h3>
+          <ol>
+            <li>
+              Organizatorem oraz podmiotem odpowiedzialnym za wykonanie usługi,
+              tj. rozgrywki Laser Arena Poznań (dalej: "Usługa" lub
+              "Rozgrywka"), jest firma <strong>Notec Kacper Urbaniak</strong>,
+              NIP: 2810094761, z siedzibą pod adresem Osów 2, 66-530 Drezdenko
+              (dalej: "Organizator" lub "Usługodawca").
+            </li>
+            <li>
+              Usługa organizowana jest na terenie Fortu II w Poznaniu. W
+              przypadku rozgrywek wyjazdowych miejscem świadczenia usługi jest
+              miejsce wskazane przez zamawiającego.
+            </li>
+            <li>
+              Niniejszy regulamin określa zasady obowiązujące podczas rozgrywek
+              organizowanych przez Organizatora.
+            </li>
+            <li>
+              Każdy uczestnik zobowiązany jest do zapoznania się z regulaminem
+              przed rozgrywką. Korzystanie z usługi oznacza akceptację
+              niniejszego regulaminu.
+            </li>
+            <li>
+              Warunkiem uczestnictwa jest brak przeciwwskazań zdrowotnych do
+              uprawiania sportu. Kobiety w ciąży oraz osoby z problemami
+              zdrowotnymi (np. astma, choroby kręgosłupa) nie powinny brać
+              udziału.
+            </li>
+            <li>
+              W rozgrywce mogą brać udział wyłącznie osoby trzeźwe. Osoby będące
+              pod wpływem alkoholu lub środków odurzających nie zostaną
+              dopuszczone do gry.
+            </li>
+            <li>
+              Uczestnicy noszący biżuterię, okulary lub inne elementy narażone
+              na uszkodzenie powinni je zdjąć lub odpowiednio zabezpieczyć.
+            </li>
+            <li>
+              Organizator nie ponosi odpowiedzialności za rzeczy pozostawione na
+              terenie fortu.
+            </li>
+            <li>
+              Rzeczy pozostawione przez uczestników zostaną usunięte, jeśli nie
+              zostaną odebrane w ciągu 14 dni roboczych.
+            </li>
+          </ol>
+
+          <h3>§ 2. Rezerwacja i płatności</h3>
+          <ol start="10">
+            <li>
+              Aby zamówić usługę, należy wcześniej zarezerwować termin przez:
+              <ul>
+                <li>Formularz kontaktowy na stronie www.laserarenapoznan.pl</li>
+                <li>Wiadomość e-mail na adres laserarenapoznan@gmail.com</li>
+                <li>Telefon: +48 691 545 741</li>
+              </ul>
+            </li>
+            <li>
+              Każda osoba dokonująca rezerwacji zobowiązana jest do podania
+              numeru telefonu lub adresu e-mail. Dane te są niezbędne do
+              realizacji usługi.
+            </li>
+            <li>
+              Czas rezerwacji obejmuje zapoznanie się z zasadami, wydanie
+              sprzętu, rozgrywkę oraz jego zwrot. Organizator określa czas na te
+              czynności.
+            </li>
+            <li>
+              Rezerwacja uważana jest za potwierdzoną po otrzymaniu wiadomości
+              zwrotnej od Organizatora.
+            </li>
+            <li>
+              Rezygnacja z usługi musi nastąpić min. 48 godzin przed terminem
+              rozgrywki. W przeciwnym razie Organizator ma prawo pobrać opłatę
+              rezygnacyjną.
+            </li>
+            <li>
+              <strong
+                >Rezerwacja jest potwierdzona po wpłacie bezzwrotnego zadatku w
+                wysokości 300 zł w ciągu 24 godzin na konto: 28 1870 1045 2078
+                1077 4255 0001 lub poprzez BLIK na numer +48 691 545
+                741.</strong
+              >
+            </li>
+          </ol>
+
+          <h3>§ 3. Przebieg rozgrywki i odpowiedzialność</h3>
+          <ol start="16">
+            <li>
+              W jednej rundzie może brać udział maksymalnie 12 osób. Jeśli
+              uczestników jest więcej, zostaną oni podzieleni na mniejsze
+              zespoły (maksymalnie 6-osobowe).
+            </li>
+            <li>
+              W czasie oczekiwania drużyny mogą obserwować statystyki na żywo na
+              monitorach dostępnych na arenie oraz słuchać komentarza lektora
+              relacjonującego przebieg rozgrywki.
+            </li>
+            <li>
+              Uczestnicy biorą udział na własne ryzyko. Zabronione jest
+              bieganie, przeskakiwanie, wchodzenie na elementy areny oraz jej
+              wystroju. Organizator nie ponosi odpowiedzialności za urazy
+              powstałe w trakcie gry.
+            </li>
+            <li>
+              Uczestnicy są odpowiedzialni za powierzony im sprzęt. W przypadku
+              jego uszkodzenia lub zagubienia, Organizator może obciążyć
+              uczestnika kosztami naprawy lub wymiany.
+            </li>
+            <li>Organizator nie odpowiada za rzeczy osobiste uczestników.</li>
+          </ol>
+
+          <h3>§ 4. Prawa i obowiązki uczestników</h3>
+          <ol start="21">
+            <li>
+              Uczestnicy zobowiązani są do przestrzegania regulaminu, zasad
+              bezpieczeństwa i poleceń Organizatora.
+            </li>
+            <li>
+              Uczestnicy mogą w każdym momencie wycofać się z gry, jeśli poczują
+              się niekomfortowo.
+            </li>
+            <li>
+              Celowe uszkodzenie sprzętu będzie skutkować obciążeniem kosztami
+              naprawy lub wymiany.
+            </li>
+          </ol>
+
+          <h3>§ 5. Monitoring i zmiany w regulaminie</h3>
+          <ol start="24">
+            <li>
+              Obiekt jest monitorowany. Nagrania mogą być wykorzystywane w
+              celach dowodowych w przypadku naruszeń regulaminu.
+            </li>
+            <li>
+              Organizator zastrzega sobie prawo do zmiany regulaminu w dowolnym
+              momencie. Nowe zapisy wchodzą w życie z chwilą ich opublikowania
+              na stronie www.laserarenapoznan.pl.
+            </li>
+          </ol>
+
+          <div class="legal-footer">
+            <h4>Organizator:</h4>
+            <p><strong>Notec Kacper Urbaniak</strong></p>
+            <p>NIP: 2810094761</p>
+            <p>Adres: Osów 2, 66-530 Drezdenko</p>
+            <p>Kontakt: laserarenapoznan@gmail.com</p>
+            <p>Telefon: +48 691 545 741</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>LASER ARENA POZNAŃ</h4>
+            <p>
+              Najnowoczesniejszy LaserTag w historycznych podziemiach Fortu II z
+              1878 roku.
+            </p>
+            <div class="footer-company">
+              <p><strong>Notec Kacper Urbaniak</strong></p>
+              <p>NIP: 2810094761</p>
+              <p>Osów 2, 66-530 Drezdenko</p>
+            </div>
+            <div class="footer-arena">
+              <p><strong>Arena:</strong> Fort II, ul. Obodrzycka, Poznań</p>
+            </div>
+            <div class="footer-payment">
+              <p><strong>Konto bankowe:</strong></p>
+              <p>28 1870 1045 2078 1077 4255 0001</p>
+              <p><strong>BLIK:</strong> +48 691 545 741</p>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Szybkie linki</h4>
+            <ul>
+              <li><a href="index.html#o-nas">O nas</a></li>
+              <li><a href="index.html#oferta">Oferta</a></li>
+              <li><a href="index.html#cennik">Cennik</a></li>
+              <li><a href="rezerwacje.html">Rezerwacje</a></li>
+              <li><a href="kalendarz.html">Kalendarz</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Informacje</h4>
+            <ul>
+              <li><a href="faq.html">F.A.Q.</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li>
+                <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+              </li>
+              <li><a href="regulamin.html">Regulamin</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Godziny otwarcia</h4>
+            <p>Codziennie: 9:00 - 21:00</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Laser Arena Poznań. Wszelkie prawa zastrzeżone.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-banner-content">
+        <div class="cookie-banner-text">
+          <h4>Ta strona używa plików cookies</h4>
+          <p>
+            Używamy plików cookies oraz podobnych technologii (Google Analytics,
+            Google Tag Manager, Google Ads) w celu zapewnienia prawidłowego
+            działania strony, analizy ruchu oraz celów marketingowych. Klikając
+            "Akceptuję" wyrażasz zgodę na ich użycie. Więcej informacji
+            znajdziesz w naszej
+            <a href="polityka-prywatnosci.html">Polityce Prywatności</a>.
+          </p>
+        </div>
+        <div class="cookie-banner-actions">
+          <button
+            class="cookie-btn cookie-btn-accept"
+            onclick="acceptCookies()"
+          >
+            Akceptuję
+          </button>
+          <a
+            href="polityka-prywatnosci.html"
+            class="cookie-btn cookie-btn-settings"
+            >Więcej informacji</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Cookie consent management
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieBanner").classList.remove("visible");
+      }
+
+      function checkCookieConsent() {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          setTimeout(function () {
+            document.getElementById("cookieBanner").classList.add("visible");
+          }, 1000);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", checkCookieConsent);
+    </script>
+  </body>
+</html>

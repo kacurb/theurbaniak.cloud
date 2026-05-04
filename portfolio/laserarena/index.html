@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laser Arena Poznań - LaserTag w Historycznym Forcie II</title>
+    <meta
+      name="description"
+      content="Najlepsza arena LaserTag w historycznym Forcie II z 1878 roku. Statystyki na żywo, konfigurowalna broń, sale eventowe."
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16691092408"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Konfiguracja Google Ads
+      gtag("config", "AW-16691092408");
+
+      // Konfiguracja Google Analytics 4
+      gtag('config', 'G-8MMF96GQCJ');
+    </script>
+  
+</script>
+
+    <script>
+      gtag("config", "AW-16691092408/LxxtCMe7-t4bELi395Y-", {
+        phone_conversion_number: "691545741",
+      });
+    </script>
+    <!-- Event snippet dla Formularz Rezerwacja -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url != "undefined") {
+            window.location = url;
+          }
+        };
+        gtag("event", "conversion", {
+          send_to: "AW-16691092408/O8mOCN3A-94bELi395Y-",
+          event_callback: callback,
+        });
+        return false;
+      }
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-brand">
+          <img
+            src="images/laser-arena-poznan-logo-small.svg"
+            alt="Laser Arena Poznan Logo"
+            class="nav-logo"
+          />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="#o-nas" class="nav-link" data-i18n="nav_about">O nas</a>
+          <a href="#oferta" class="nav-link" data-i18n="nav_offer">Oferta</a>
+          <a href="#cennik" class="nav-link" data-i18n="nav_pricing">Cennik</a>
+          <a href="rezerwacje.html" class="nav-link" data-i18n="nav_booking" hidden
+            >Rezerwacje</a
+          >
+          <a href="kalendarz.html" class="nav-link" data-i18n="nav_calendar"
+            >Kalendarz</a
+          >
+          <a href="wyniki.html" class="nav-link" data-i18n="nav_results" hidden
+            >Wyniki</a
+          >
+          <a href="galeria.html" class="nav-link" data-i18n="nav_gallery"
+            >Galeria</a
+          >
+          <a href="faq.html" class="nav-link" data-i18n="nav_faq">F.A.Q.</a>
+          <a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+          <a href="#kontakt" class="nav-link" data-i18n="nav_contact"
+            >Kontakt</a
+          >
+        </div>
+
+        <div class="nav-controls">
+          <!-- Cart Icon -->
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <!-- Language Dropdown -->
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twój koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="rezerwacje.html" class="btn btn-primary cart-checkout-btn"
+              >Przejdź do rezerwacji</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <img
+          src="images/laser-arena-poznan-logo.svg"
+          alt="Laser Arena Poznan - LaserTag w Forcie II"
+          class="hero-logo"
+        />
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Najnowocześniejszy LaserTag w historycznych podziemiach Fortu II
+        </p>
+        <div class="hero-features">
+          <div class="feature-tag feature-tag-highlight">
+            <span class="feature-icon pulse-icon">&#9654;</span>
+            <span data-i18n="hero_feature1">STATYSTYKI NA ŻYWO</span>
+          </div>
+        </div>
+        <div class="hero-cta">
+          <a
+            href="tel:+48691545741"
+            class="btn btn-primary btn-phone"
+            data-i18n="hero_cta_phone"
+            ><span class="phone-icon">&#128222;</span> Zadzwoń: 691 545 741</a
+          >
+          <a
+            href="rezerwacje.html"
+            class="btn btn-secondary"
+            data-i18n="hero_cta_form"
+            >Zarezerwuj przez formularz</a
+          >
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span data-i18n="scroll_down">Przewiń w dół</span>
+        <div class="scroll-arrow">↓</div>
+      </div>
+    </section>
+
+    <!-- O nas Section -->
+    <section id="o-nas" class="section section-about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2 class="section-title" data-i18n="about_title">O nas</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <h3 data-i18n="about_heading">Historia spotyka przyszłość</h3>
+            <p data-i18n="about_p1">
+              Laser Arena Poznań to wyjątkowe miejsce, gdzie historia spotyka
+              się z najnowszą technologią. Nasza arena LaserTag mieści się w
+              autentycznych podziemiach Fortu II z 1878 roku - jednego z 18
+              fortów Twierdzy Poznań, wpisanego do rejestru zabytków. Ceglane
+              korytarze i kazamaty tworzą niepowtarzalny klimat dla rozgrywek.
+            </p>
+            <p data-i18n="about_p2">
+              Wyróżniamy się zaawansowanym systemem statystyk w czasie
+              rzeczywistym, możliwością pełnej konfiguracji broni oraz 5 różnymi
+              scenariuszami gry. Nasz sprzęt to profesjonalne karabinki laserowe
+              z opaskami na głowę - lekkie, wygodne i precyzyjne. To nie tylko
+              rozgrywka - to immersyjne doświadczenie taktyczne w autentycznym
+              militarnym środowisku.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">1878</div>
+                <div class="stat-label" data-i18n="about_stat1">
+                  Rok budowy fortu
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">2-12</div>
+                <div class="stat-label" data-i18n="about_stat2">
+                  Graczy jednocześnie
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label" data-i18n="about_stat3">
+                  Scenariuszy gry
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-image">
+            <div class="image-frame">
+              <div class="corner-tl"></div>
+              <div class="corner-tr"></div>
+              <div class="corner-bl"></div>
+              <div class="corner-br"></div>
+              <img
+                src="images/laser-arena-budynek-fortu-fasada-ceglana.jpg"
+                alt="Fort II - Fasada"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Oferta Section -->
+    <section id="oferta" class="section section-offer">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2 class="section-title" data-i18n="offer_title">Oferta</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="offer-grid">
+          <div class="offer-card">
+            <div class="offer-icon">🎯</div>
+            <h3 data-i18n="offer_lasertag_title">LaserTag Arena</h3>
+            <p data-i18n="offer_lasertag_desc">
+              Profesjonalna arena w podziemiach fortu. Statystyki na żywo,
+              konfigurowalna broń, różnorodne scenariusze gry.
+            </p>
+            <ul class="offer-features">
+              <li data-i18n="offer_lasertag_f1">
+                Statystyki w czasie rzeczywistym
+              </li>
+              <li data-i18n="offer_lasertag_f2">Pełna konfiguracja broni</li>
+              <li data-i18n="offer_lasertag_f3">Różnorodne scenariusze gry</li>
+              <li data-i18n="offer_lasertag_f4">
+                Autentyczne militarne wnętrza
+              </li>
+            </ul>
+          </div>
+
+          <div class="offer-card">
+            <div class="offer-icon">🎉</div>
+            <h3 data-i18n="offer_events_title">Sala Integracyjna</h3>
+            <p data-i18n="offer_events_desc">
+              Przestronna sala idealna na urodziny, wieczory kawalerskie,
+              panieńskie i eventy firmowe.
+            </p>
+            <ul class="offer-features">
+              <li data-i18n="offer_events_f1">Wynajem dla grup</li>
+              <li data-i18n="offer_events_f2">Catering na zamówienie</li>
+
+              <li data-i18n="offer_events_f4">Atmosfera historycznego fortu</li>
+            </ul>
+          </div>
+
+          <div class="offer-card">
+            <div class="offer-icon">🔥</div>
+            <h3 data-i18n="offer_outdoor_title">Wiata z Paleniskiem</h3>
+            <p data-i18n="offer_outdoor_desc">
+              Zewnętrzna przestrzeń z paleniskiem - idealna na integrację po
+              rozgrywkach lub samodzielne eventy.
+            </p>
+            <ul class="offer-features">
+              <li data-i18n="offer_outdoor_f1">Zadaszona wiata</li>
+              <li data-i18n="offer_outdoor_f2">Profesjonalne palenisko</li>
+              <li data-i18n="offer_outdoor_f3">Miejsce na grilla</li>
+              <li data-i18n="offer_outdoor_f4">Stoły i miejsca siedzące</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cennik Section -->
+    <section id="cennik" class="section section-pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2 class="section-title" data-i18n="pricing_title">Cennik</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="pricing-info-box">
+          <p data-i18n="pricing_training_info">
+            Każda rezerwacja uwzględnia <strong>15 minut</strong> na szkolenie.
+          </p>
+        </div>
+
+        <!-- Day Switcher -->
+        <div class="pricing-day-switcher">
+          <button class="day-switch-btn active" data-period="weekday">
+            <span class="switch-label">PN - CZW</span>
+            <span class="switch-sublabel">Poniedziałek - Czwartek</span>
+          </button>
+          <button class="day-switch-btn" data-period="friday-sunday">
+            <span class="switch-label">PT - ND</span>
+            <span class="switch-sublabel">Piątek - Niedziela</span>
+          </button>
+        </div>
+
+        <!-- Opcje dodatkowe -->
+        <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+          <div class="pricing-info-box" style="width: 50%; min-width: 280px; text-align: center;">
+            <p><strong>Opcje dodatkowe (dla każdego pakietu):</strong></p>
+            <ul style="list-style: none; padding: 0; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+              <li>🕐 Dodatkowa godzina gry – <strong>300 PLN</strong></li>
+              <li>🏛️ Dodatkowa godzina sali – <strong>150 PLN</strong></li>
+              <li>👤 Dodatkowa osoba – <strong>40 PLN</strong></li>
+              <li>🍕 Pizza (4 szt. 30 cm) – <strong>250 PLN</strong></li>
+              <li>🥤 Napoje i przekąski – <strong>250 PLN</strong></li>
+            </ul>
+            <p style="margin-top: 0.75rem;">🎁 Przy płatności za całość z góry udzielamy <strong>10% rabatu</strong>.</p>
+          </div>
+        </div>
+
+        <!-- Pricing Cards Container -->
+        <div class="pricing-cards-container">
+          <!-- PN-CZW Prices -->
+          <div class="pricing-cards-grid" data-period="weekday">
+            <!-- Mini Impreza -->
+            <div
+              class="pricing-card"
+              data-service="mini-impreza"
+              data-price="400"
+              data-period="weekday"
+            >
+              <div class="card-icon">🎮</div>
+              <h3 class="card-title">Mini Impreza</h3>
+              <div class="card-price">
+                <span class="price-currency">PLN</span>
+                <span class="price-amount">400</span>
+              </div>
+              <ul class="card-features">
+                <li>Czas trwania: 1 godzina</li>
+                <li>Do 6 osób</li>
+                <li>Sala integracyjna w cenie</li>
+              </ul>
+              <a
+                href="rezerwacje.html?pakiet=mini-impreza&okres=weekday"
+                class="btn btn-primary card-cta"
+              >
+                Wybieram
+              </a>
+            </div>
+
+            <!-- Impreza -->
+            <div
+              class="pricing-card"
+              data-service="impreza"
+              data-price="899"
+              data-period="weekday"
+            >
+              <div class="card-icon">🎯</div>
+              <h3 class="card-title">Impreza</h3>
+              <div class="card-price">
+                <span class="price-currency">PLN</span>
+                <span class="price-amount">899</span>
+              </div>
+              <ul class="card-features">
+                <li>Czas trwania: 2 godziny</li>
+                <li>Do 12 osób</li>
+                <li>Sala integracyjna w cenie</li>
+              </ul>
+              <a
+                href="rezerwacje.html?pakiet=impreza&okres=weekday"
+                class="btn btn-primary card-cta"
+              >
+                Wybieram
+              </a>
+            </div>
+
+            <!-- Specjalne Operacje -->
+            <div
+              class="pricing-card pricing-card-individual"
+              data-service="specjalne-operacje"
+              data-period="weekday"
+            >
+              <div class="card-icon">⚡</div>
+              <h3 class="card-title">Specjalne Operacje</h3>
+              <div class="individual-options">
+                <div class="individual-option">
+                  <div class="option-header">
+                    <span class="option-games">🌅 Poranna Zaprawa | Pn–Pt 9:00–15:00</span>
+                    <span class="option-price"><strong>999</strong> PLN</span>
+                  </div>
+                  <div style="font-size: 0.82em; margin-top: 0.3rem; opacity: 0.8;">2 godz. &bull; do 30 osób &bull; sala w cenie</div>
+                </div>
+                <div class="individual-option">
+                  <div class="option-header">
+                    <span class="option-games">🌙 Nocna Operacja | 21:00-00:00</span>
+                    <span class="option-price"><strong>1299</strong> PLN</span>
+                  </div>
+                  <div style="font-size: 0.82em; margin-top: 0.3rem; opacity: 0.8;">2 godz. &bull; do 30 osób &bull; sala w cenie</div>
+                </div>
+              </div>
+              <a
+                href="rezerwacje.html?pakiet=specjalne-operacje&okres=weekday"
+                class="btn btn-primary card-cta"
+              >
+                Wybieram
+              </a>
+            </div>
+          </div>
+
+          <!-- PT - ND Prices -->
+          <div
+            class="pricing-cards-grid"
+            data-period="friday-sunday"
+            style="display: none"
+          >
+            <!-- Mini Impreza -->
+            <div
+              class="pricing-card"
+              data-service="mini-impreza"
+              data-price="450"
+              data-period="friday-sunday"
+            >
+              <div class="card-icon">🎮</div>
+              <h3 class="card-title">Mini Impreza</h3>
+              <div class="card-price">
+                <span class="price-currency">PLN</span>
+                <span class="price-amount">450</span>
+              </div>
+              <ul class="card-features">
+                <li>Czas trwania: 1 godzina</li>
+                <li>Do 6 osób</li>
+                <li>Sala integracyjna w cenie</li>
+              </ul>
+              <a
+                href="rezerwacje.html?pakiet=mini-impreza&okres=friday-sunday"
+                class="btn btn-primary card-cta"
+              >
+                Wybieram
+              </a>
+            </div>
+
+            <!-- Impreza -->
+            <div
+              class="pricing-card"
+              data-service="impreza"
+              data-price="949"
+              data-period="friday-sunday"
+            >
+              <div class="card-icon">🎯</div>
+              <h3 class="card-title">Impreza</h3>
+              <div class="card-price">
+                <span class="price-currency">PLN</span>
+                <span class="price-amount">949</span>
+              </div>
+              <ul class="card-features">
+                <li>Czas trwania: 2 godziny</li>
+                <li>Do 12 osób</li>
+                <li>Sala integracyjna w cenie</li>
+              </ul>
+              <a
+                href="rezerwacje.html?pakiet=impreza&okres=friday-sunday"
+                class="btn btn-primary card-cta"
+              >
+                Wybieram
+              </a>
+            </div>
+
+            <!-- Specjalne Operacje -->
+            <div
+              class="pricing-card pricing-card-individual"
+              data-service="specjalne-operacje"
+              data-period="friday-sunday"
+            >
+              <div class="card-icon">⚡</div>
+              <h3 class="card-title">Specjalne Operacje</h3>
+              <div class="individual-options">
+                <div class="individual-option">
+                  <div class="option-header">
+                    <span class="option-games">🌅 Poranna Zaprawa | Pn–Pt 9:00–15:00</span>
+                    <span class="option-price"><strong>999</strong> PLN</span>
+                  </div>
+                  <div style="font-size: 0.82em; margin-top: 0.3rem; opacity: 0.8;">2 godz. &bull; do 30 osób &bull; sala w cenie</div>
+                </div>
+                <div class="individual-option">
+                  <div class="option-header">
+                    <span class="option-games">🌙 Nocna Operacja | 21:00-00:00</span>
+                    <span class="option-price"><strong>1299</strong> PLN</span>
+                  </div>
+                  <div style="font-size: 0.82em; margin-top: 0.3rem; opacity: 0.8;">2 godz. &bull; do 30 osób &bull; sala w cenie</div>
+                </div>
+              </div>
+              <a
+                href="rezerwacje.html?pakiet=specjalne-operacje&okres=friday-sunday"
+                class="btn btn-primary card-cta"
+              >
+                Wybieram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria Section -->
+    <section id="galeria" class="section section-gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2 class="section-title" data-i18n="gallery_title">Galeria</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="images/laser-arena-arena-glowna-beczki-oslony.jpg"
+              alt="Arena - korytarze fortu"
+            />
+            <div class="gallery-overlay">
+              <span data-i18n="gallery_arena">Korytarze areny</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="images/laser-arena-budynek-fortu-fasada-ceglana.jpg"
+              alt="Fort II - budynek"
+            />
+            <div class="gallery-overlay">
+              <span data-i18n="gallery_underground">Zabytkowy Fort II</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="images/laser-tag-graczka-z-karabinem-czerwone-swiatlo.jpg"
+              alt="Gracz w akcji"
+            />
+            <div class="gallery-overlay">
+              <span data-i18n="gallery_equipment">Akcja w grze</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="images/laser-arena-sala-imprezowa-sklepienie-ceglane.jpg"
+              alt="Sala integracyjna"
+            />
+            <div class="gallery-overlay">
+              <span data-i18n="gallery_event_room">Sala integracyjna</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="images/laser-arena-strefa-ogniskowa-palenisko-drewno.jpg"
+              alt="Wiata z paleniskiem"
+            />
+            <div class="gallery-overlay">
+              <span data-i18n="gallery_outdoor">Wiata z paleniskiem</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="images/laser-tag-briefing-instruktor-przed-gra.jpg"
+              alt="Briefing przed grą"
+            />
+            <div class="gallery-overlay">
+              <span data-i18n="gallery_gameplay">Briefing przed grą</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-more">
+          <a href="galeria.html" class="btn btn-secondary"
+            >Zobacz pełną galerię</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" class="section section-contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <h2 class="section-title" data-i18n="contact_title">Kontakt</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Left: Contact Form -->
+          <div class="contact-form-container">
+            <h3 data-i18n="contact_get_in_touch">Skontaktuj się z nami</h3>
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="contactName" data-i18n="form_name"
+                  >Imię i nazwisko</label
+                >
+                <input type="text" id="contactName" name="name" required />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactEmail" data-i18n="form_email">Email</label>
+                  <input type="email" id="contactEmail" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="contactPhone" data-i18n="form_phone"
+                    >Telefon</label
+                  >
+                  <input type="tel" id="contactPhone" name="phone" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactSubject">Temat</label>
+                <select id="contactSubject" name="subject">
+                  <option value="general">Pytanie ogólne</option>
+                  <option value="booking">Rezerwacja</option>
+                  <option value="event">Event firmowy</option>
+                  <option value="birthday">Urodziny</option>
+                  <option value="other">Inne</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage" data-i18n="form_message"
+                  >Wiadomość</label
+                >
+                <textarea
+                  id="contactMessage"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                Wyślij wiadomość
+              </button>
+            </form>
+          </div>
+
+          <!-- Right: Map + Contact Info -->
+          <div class="contact-map-container">
+            <div class="contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.8825771356496!2d16.963187241753904!3d52.37254914725159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470445583e4604ed%3A0xa445bf30a50aac5e!2sLaser%20Arena%20Pozna%C5%84%20-%20Paintball%20laserowy!5e0!3m2!1spl!2spl!4v1767995610720!5m2!1spl!2spl""
+                width="100%"
+                height="300"
+                style="border: 0; border-radius: 8px"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+
+            <div class="contact-info-compact">
+              <div class="contact-info-item">
+                <span class="info-icon">&#128205;</span>
+                <div>
+                  <strong>Adres</strong>
+                  <p>Fort II, ul. Obodrzycka, Poznań</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <span class="info-icon">&#128222;</span>
+                <div>
+                  <strong>Telefon</strong>
+                  <p><a href="tel:+48691545741">+48 691 545 741</a></p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <span class="info-icon">&#9993;</span>
+                <div>
+                  <strong>Email</strong>
+                  <p>
+                    <a href="mailto:laserarenapoznan@gmail.com"
+                      >laserarenapoznan@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <span class="info-icon">&#128337;</span>
+                <div>
+                  <strong>Godziny otwarcia</strong>
+                  <p>Codziennie: 9:00-21:00</p>
+                </div>
+              </div>
+
+              <div class="contact-social">
+                <a href="#" class="social-btn" title="Facebook">&#128101;</a>
+                <a href="#" class="social-btn" title="Instagram">&#128247;</a>
+                <a href="#" class="social-btn" title="YouTube">&#127909;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>LASER ARENA POZNAN</h4>
+            <p data-i18n="footer_desc">
+              Najnowocześniejszy LaserTag w historycznych podziemiach Fortu II z
+              1878 roku.
+            </p>
+            <div class="footer-company">
+              <p><strong>Notec Kacper Urbaniak</strong></p>
+              <p>NIP: 2810094761</p>
+              <p>Osów 2, 66-530 Drezdenko</p>
+            </div>
+            <div class="footer-arena">
+              <p><strong>Arena:</strong> Fort II, ul. Obodrzycka, Poznań</p>
+            </div>
+            <div class="footer-payment">
+              <p><strong>Konto bankowe:</strong></p>
+              <p>28 1870 1045 2078 1077 4255 0001</p>
+              <p><strong>BLIK:</strong> +48 691 545 741</p>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n="footer_quick_links">Szybkie linki</h4>
+            <ul>
+              <li><a href="#o-nas" data-i18n="nav_about">O nas</a></li>
+              <li><a href="#oferta" data-i18n="nav_offer">Oferta</a></li>
+              <li><a href="#cennik" data-i18n="nav_pricing">Cennik</a></li>
+              <li hidden>
+                <a href="rezerwacje.html" data-i18n="nav_booking">Rezerwacje</a>
+              </li>
+              <li>
+                <a href="kalendarz.html" data-i18n="nav_calendar">Kalendarz</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n="footer_info">Informacje</h4>
+            <ul>
+              <li><a href="faq.html" data-i18n="nav_faq">F.A.Q.</a></li>
+              <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+              <li>
+                <a href="polityka-prywatnosci.html" data-i18n="footer_privacy"
+                  >Polityka prywatności</a
+                >
+              </li>
+              <li>
+                <a href="regulamin.html" data-i18n="footer_terms">Regulamin</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n="footer_hours">Godziny otwarcia</h4>
+            <p>Codziennie: 9:00 - 21:00</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Laser Arena Poznan.
+            <span data-i18n="footer_rights">Wszelkie prawa zastrzeżone.</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-banner-content">
+        <div class="cookie-banner-text">
+          <h4>Ta strona używa plików cookies</h4>
+          <p>
+            Używamy plików cookies oraz podobnych technologii (Google Analytics,
+            Google Tag Manager, Google Ads) w celu zapewnienia prawidłowego
+            działania strony, analizy ruchu oraz celów marketingowych. Klikając
+            "Akceptuję" wyrażasz zgodę na ich użycie. Więcej informacji
+            znajdziesz w naszej
+            <a href="polityka-prywatnosci.html">Polityce Prywatności</a>.
+          </p>
+        </div>
+        <div class="cookie-banner-actions">
+          <button
+            class="cookie-btn cookie-btn-accept"
+            onclick="acceptCookies()"
+          >
+            Akceptuję
+          </button>
+          <a
+            href="polityka-prywatnosci.html"
+            class="cookie-btn cookie-btn-settings"
+            >Więcej informacji</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Phone Bar (Mobile) -->
+    <div class="sticky-phone-bar" id="stickyPhoneBar">
+      <a href="tel:+48691545741" class="sticky-phone-link">
+        <span class="sticky-phone-icon">&#128222;</span>
+        <span class="sticky-phone-text">Zadzwoń teraz</span>
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="calendar-weekly.js"></script>
+    <script>
+      // Cookie consent management
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieBanner").classList.remove("visible");
+      }
+
+      function checkCookieConsent() {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          setTimeout(function () {
+            document.getElementById("cookieBanner").classList.add("visible");
+          }, 1000);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", checkCookieConsent);
+    </script>
+  </body>
+</html>

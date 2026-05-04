@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - Laser Arena Poznań</title>
+    <meta
+      name="description"
+      content="Najczęściej zadawane pytania o LaserTag w Laser Arena Poznań."
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16691092408"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Konfiguracja Google Ads
+      gtag("config", "AW-16691092408");
+
+      // Konfiguracja Google Analytics 4
+      gtag("config", "G-8MMF96GQCJ");
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-brand">
+          <img
+            src="images/laser-arena-poznan-logo-small.svg"
+            alt="Laser Arena Poznań Logo"
+            class="nav-logo"
+          />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html#o-nas" class="nav-link">O nas</a>
+          <a href="index.html#oferta" class="nav-link">Oferta</a>
+          <a href="index.html#cennik" class="nav-link">Cennik</a>
+          <a href="rezerwacje.html" class="nav-link" hidden>Rezerwacje</a>
+          <a href="kalendarz.html" class="nav-link">Kalendarz</a>
+          <a href="wyniki.html" class="nav-link" hidden>Wyniki</a>
+          <a href="galeria.html" class="nav-link">Galeria</a>
+          <a href="faq.html" class="nav-link active">F.A.Q.</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twój koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="rezerwacje.html" class="btn btn-primary cart-checkout-btn"
+              >Przejdź do rezerwacji</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- FAQ Section -->
+    <section class="section section-faq page-section">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="page-title">Najczęściej zadawane pytania</h1>
+          <p class="page-subtitle">
+            Wszystko co musisz wiedzieć o LaserTag w Laser Arena Poznań
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Czym różni się LaserTag od paintballa?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                LaserTag to w pełni elektroniczny system oparty na technologii
+                podczerwieni. Brak farby, brak śladów, brak bólu - tylko czysta
+                taktyczna rozgrywka z pełnymi statystykami w czasie
+                rzeczywistym. Możesz grać w normalnym ubraniu!
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Od jakiego wieku można grać?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Polecamy LaserTag dla osób od 8 roku życia. Dzieci poniżej 12
+                lat powinny grać pod opieką dorosłych. Nie ma górnej granicy
+                wieku - LaserTag to świetna zabawa dla każdego!
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Czy trzeba mieć własny sprzęt?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Nie! Zapewniamy cały profesjonalny sprzęt - karabinki laserowe z
+                opaskami na głowę wyposażonymi w czujniki, system statystyk na
+                żywo. Wystarczy przyjść w wygodnym ubraniu i sportowych butach.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Jak działają statystyki na żywo?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Nasz system automatycznie rejestruje każde trafienie,
+                eliminację, zdobyte punkty i inne statystyki. Po grze każdy
+                gracz otrzymuje szczegółowy raport z wynikami, który może
+                sprawdzić na naszej stronie.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Czy można wynająć całą arenę?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Tak! Oferujemy wynajem całej areny wraz z salą integracyjną i
+                wiatą. Idealny na imprezy firmowe, urodziny czy wieczory
+                kawalerskie. Skontaktuj się z nami po szczegóły.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Jak wygląda rozgrywka dla początkujących?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Każda sesja zaczyna się od instruktażu, gdzie wyjaśniamy zasady,
+                pokazujemy jak obsługiwać sprzęt i prezentujemy arenę. Pierwsze
+                rundy są prostsze, aby każdy mógł się zapoznać z mechaniką gry.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Ile trwa jedna gra?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Standardowa gra trwa około 15 minut. W zależności od wybranego
+                pakietu, możesz zagrać od 1 do 6 gier podczas jednej sesji. Do
+                czasu gry doliczamy 15 minut na szkolenie.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Czy LaserTag jest bezpieczny?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Tak! LaserTag jest całkowicie bezpieczny. Promienie podczerwone
+                są nieszkodliwe dla oczu i skóry. Nie ma żadnego fizycznego
+                kontaktu ani pocisków - to czysta elektroniczna zabawa.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Czy zadatek jest zwrotny?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Nie, zadatek w wysokości 300 PLN jest bezzwrotny. Prosimy o
+                przemyślaną decyzję przed dokonaniem rezerwacji. W przypadku
+                pytań prosimy o kontakt telefoniczny: +48 691 545 741.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Kiedy rezerwacja jest potwierdzona?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                <strong>Rezerwacja przyjęta do realizacji</strong> to taka, na którą
+                odpowiemy potwierdzeniem – prosimy czekać na kontakt z naszej strony.
+                Samo wpłacenie zadatku z góry <strong>nie oznacza automatycznie
+                potwierdzonej rezerwacji</strong>. Rezerwacja zostaje potwierdzona
+                dopiero po otrzymaniu od nas wiadomości z potwierdzeniem terminu.
+                W razie pytań prosimy o kontakt: +48 691 545 741.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Ile osób może wejść na arenę?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Maksymalnie 12 osób może jednocześnie grać na arenie. Zastrzegamy
+                sobie jednak możliwość zmniejszenia liczby uczestników, jeśli
+                uznamy, że grupa nie poradzi sobie w pełnym składzie ze względów
+                bezpieczeństwa.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Co zawiera dodatek Pizza i Catering?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Dodatek <strong>Pizza (4 sztuki 30 cm)</strong> to 4 pizze margherity.
+                Dodatek <strong>Catering (napoje i przekąski)</strong> zawiera około 500 ml napoju na osobę
+                (dla 12 osób) oraz przekąski: chipsy, paluszki i chrupki.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Jakie są zasady korzystania z sali integracyjnej?</h3>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Na salę integracyjną mogą wejść wyłącznie uczestnicy, którzy oddali
+                sprzęt do laser taga. Obowiązuje <strong>całkowity zakaz wchodzenia
+                na salę ze sprzętem</strong> (karabinkami laserowymi i opaskami).
+                Zasada ta ma na celu ochronę wyposażenia oraz bezpieczeństwo wszystkich gości.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-cta">
+          <p>Masz inne pytanie?</p>
+          <a href="index.html#kontakt" class="btn btn-primary"
+            >Skontaktuj się z nami</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2025 Laser Arena Poznań. Wszelkie prawa zastrzeżone.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky Phone Bar (Mobile) -->
+    <div class="sticky-phone-bar" id="stickyPhoneBar">
+      <a href="tel:+48691545741" class="sticky-phone-link">
+        <span class="sticky-phone-icon">&#128222;</span>
+        <span class="sticky-phone-text">Zadzwoń teraz</span>
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
