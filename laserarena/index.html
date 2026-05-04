@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laser Arena Poznań — theurbaniak</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      :root {
+        --bg: #0a0a0a;
+        --accent: #00ff41;
+        --border: #333333;
+        --text: #ffffff;
+        --text-dim: #a0a0a0;
+      }
+
+      body {
+        font-family: "IBM Plex Mono", monospace;
+        background: var(--bg);
+        color: var(--text);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        height: 56px;
+        min-height: 56px;
+        border-bottom: 1px solid var(--border);
+        background: var(--bg);
+        z-index: 10;
+      }
+
+      .bar-left {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .back {
+        color: var(--text-dim);
+        text-decoration: none;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.2s;
+      }
+      .back:hover { color: var(--accent); }
+      .back::before { content: "← "; }
+
+      .divider { color: var(--border); font-size: 18px; }
+
+      .project-name {
+        font-family: "Syne", sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        color: var(--text);
+      }
+
+      .bar-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .tag {
+        font-size: 11px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 1px solid var(--accent);
+        padding: 3px 10px;
+      }
+
+      .visit {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--bg);
+        background: var(--accent);
+        padding: 6px 16px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: opacity 0.2s;
+      }
+      .visit:hover { opacity: 0.85; }
+
+      .frame-wrap {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      .fallback {
+        display: none;
+        position: absolute;
+        inset: 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 40px;
+        background: var(--bg);
+      }
+
+      .fallback.show { display: flex; }
+
+      .fallback h2 {
+        font-family: "Syne", sans-serif;
+        font-size: 28px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
+
+      .fallback p {
+        color: var(--text-dim);
+        font-size: 14px;
+        max-width: 400px;
+        line-height: 1.7;
+      }
+
+      .fallback a {
+        display: inline-block;
+        padding: 14px 32px;
+        background: var(--accent);
+        color: var(--bg);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bar">
+      <div class="bar-left">
+        <a href="/#portfolio" class="back">Portfolio</a>
+        <span class="divider">/</span>
+        <span class="project-name">Laser Arena Poznań</span>
+      </div>
+      <div class="bar-right">
+        <span class="tag">AI · Web · Owner</span>
+        <a href="https://www.laserarenapoznan.pl" target="_blank" rel="noopener" class="visit">Visit live ↗</a>
+      </div>
+    </div>
+
+    <div class="frame-wrap">
+      <iframe
+        id="projectFrame"
+        src="https://www.laserarenapoznan.pl"
+        title="Laser Arena Poznań"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+      ></iframe>
+
+      <div class="fallback" id="fallback">
+        <h2>Laser Arena Poznań</h2>
+        <p>This site can't be embedded due to browser security restrictions. Visit the live project directly.</p>
+        <a href="https://www.laserarenapoznan.pl" target="_blank" rel="noopener">Open Laser Arena ↗</a>
+      </div>
+    </div>
+
+    <script>
+      const frame = document.getElementById('projectFrame');
+      const fallback = document.getElementById('fallback');
+
+      frame.addEventListener('error', () => {
+        frame.style.display = 'none';
+        fallback.classList.add('show');
+      });
+
+      setTimeout(() => {
+        try {
+          const doc = frame.contentDocument || frame.contentWindow.document;
+          if (!doc || doc.URL === 'about:blank') {
+            frame.style.display = 'none';
+            fallback.classList.add('show');
+          }
+        } catch (e) {
+          // Cross-origin — iframe is loading, expected
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
