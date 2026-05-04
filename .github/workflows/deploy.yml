@@ -11,7 +11,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main  # Tylko przy pushu do brancha 'main'
+      - main # Tylko przy pushu do brancha 'main'
 
   # Pozwala tez uruchomic recznie z zakladki Actions na GitHub
   workflow_dispatch:
@@ -20,7 +20,7 @@ on:
 jobs:
   deploy:
     name: Deploy to Production Server
-    runs-on: ubuntu-latest  # Maszyna wirtualna GitHub do wykonania zadan
+    runs-on: ubuntu-latest # Maszyna wirtualna GitHub do wykonania zadan
 
     steps:
       # Krok 1: Pobierz kod z repozytorium
@@ -48,7 +48,7 @@ jobs:
             git reset --hard origin/main
 
             # Opcjonalnie: ustaw wlasciciela plikow
-            chown -R www-data:www-data /var/www/theurbaniak.cloud
+            #chown -R www-data:www-data /var/www/theurbaniak.cloud
 
             # Opcjonalnie: przeladuj Nginx (jesli zmieniles konfiguracje)
             # systemctl reload nginx
