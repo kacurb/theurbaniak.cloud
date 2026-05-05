@@ -7,6 +7,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { GlowCard } from "@/components/ui/spotlight-card";
 import RadialOrbitalTimeline, {
   type TimelineItem,
 } from "@/components/ui/radial-orbital-timeline";
@@ -244,44 +245,93 @@ export default function App() {
                 vision.
               </p>
             </div>
-            <div className="services-grid">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                gap: "24px",
+              }}
+            >
               {[
                 {
                   icon: "🎯",
                   title: "Product Vision & Strategy",
                   desc: "Before a single line of code is written, something more important happens. I find the shape of your idea — and make it worth building.",
+                  color: "green" as const,
                 },
                 {
                   icon: "⚡",
                   title: "Rapid MVP",
                   desc: "The fastest way to know if something works is to make it exist. I compress months into days — not by cutting corners, but by seeing clearly what matters.",
+                  color: "orange" as const,
                 },
                 {
                   icon: "🚀",
                   title: "SaaS Development",
                   desc: "From a conversation to a product in production. Full ownership — architecture, development, deployment. No handoffs. No excuses.",
+                  color: "blue" as const,
                 },
                 {
                   icon: "🧠",
                   title: "AI Agents & Automation",
                   desc: "Intelligence isn't the tool. It's what you do with it. I design systems that think — so your team doesn't have to do the work that shouldn't require a human.",
+                  color: "purple" as const,
                 },
                 {
                   icon: "🌐",
                   title: "Web Products",
                   desc: "Digital presence that doesn't apologize for existing. Fast, precise, built to convert — without the noise of tools that get in the way.",
+                  color: "blue" as const,
                 },
                 {
                   icon: "🔧",
                   title: "Infrastructure & Ownership",
                   desc: "What you don't see is doing the most work. VPS, cloud, CI/CD, SSL — I make sure it never fails. Quietly, reliably, completely.",
+                  color: "green" as const,
                 },
               ].map((s) => (
-                <div className="service-card reveal" key={s.title}>
-                  <div className="service-icon">{s.icon}</div>
-                  <h3 className="service-title">{s.title}</h3>
-                  <p className="service-description">{s.desc}</p>
-                </div>
+                <GlowCard
+                  key={s.title}
+                  glowColor={s.color}
+                  customSize
+                  className="reveal"
+                  style={{ minHeight: 220 }}
+                >
+                  <div
+                    style={{
+                      fontSize: 40,
+                      lineHeight: 1,
+                      marginBottom: 8,
+                    }}
+                  >
+                    {s.icon}
+                  </div>
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "'Syne', sans-serif",
+                        fontSize: 18,
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
+                        color: "#ffffff",
+                        marginBottom: 10,
+                      }}
+                    >
+                      {s.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: 13,
+                        color: "rgba(255,255,255,0.6)",
+                        lineHeight: 1.7,
+                        fontFamily: "'IBM Plex Mono', monospace",
+                      }}
+                    >
+                      {s.desc}
+                    </p>
+                  </div>
+                </GlowCard>
               ))}
             </div>
           </div>
