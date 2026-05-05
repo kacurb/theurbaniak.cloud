@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jak dziala nasz system statystyk? - Laser Arena Poznan</title>
+    <meta name="description" content="Poznaj technologie, ktora stoi za naszym systemem statystyk na zywo. Dowiedz sie jak sledzemy kazde trafienie i eliminacje." />
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    <link rel="apple-touch-icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="../index.html" class="nav-brand">
+          <img src="../images/laser-arena-poznan-logo-small.svg" alt="Laser Arena Poznan Logo" class="nav-logo" />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="../index.html#o-nas" class="nav-link">O nas</a>
+          <a href="../index.html#oferta" class="nav-link">Oferta</a>
+          <a href="../index.html#cennik" class="nav-link">Cennik</a>
+          <a href="../rezerwacje.html" class="nav-link" hidden>Rezerwacje</a>
+          <a href="../kalendarz.html" class="nav-link">Kalendarz</a>
+          <a href="../wyniki.html" class="nav-link" hidden>Wyniki</a>
+          <a href="../galeria.html" class="nav-link">Galeria</a>
+          <a href="../faq.html" class="nav-link">F.A.Q.</a>
+          <a href="../blog.html" class="nav-link active">Blog</a>
+          <a href="../index.html#kontakt" class="nav-link">Kontakt</a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twoj koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="../rezerwacje.html" class="btn btn-primary cart-checkout-btn">Przejdz do rezerwacji</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Article Content -->
+    <article class="blog-article page-section">
+      <div class="container">
+        <div class="article-header">
+          <a href="../blog.html" class="back-link">&larr; Powrot do bloga</a>
+          <div class="article-category">Technologia</div>
+          <h1 class="article-title">Jak dziala nasz system statystyk?</h1>
+          <div class="article-meta">
+            <span class="article-date">25.11.2025</span>
+            <span class="article-author">Admin</span>
+            <span class="article-reading-time">6 min czytania</span>
+          </div>
+        </div>
+
+        <div class="article-content">
+          <p class="article-lead">
+            Kazde trafienie, kazda eliminacja, kazdy ruch na arenie - nasz system rejestruje wszystko w czasie rzeczywistym. Sprawdz, jak dziala technologia, ktora pozwala Ci analizowac kazda rozgrywke i sledzic swoje postepy.
+          </p>
+
+          <h2>Technologia w slubie rozrywki</h2>
+          <p>
+            Nowoczesne systemy LaserTag to duzo wiecej niz proste "strzal i trafienie". Nasze karabinki i opaski na glowe wyposażone sa w zaawansowana elektronike, ktora komunikuje sie z centralnym serwerem, rejestrujac kazda akcje na arenie.
+          </p>
+
+          <h2>Jak to dziala?</h2>
+
+          <h3>Czujniki na opasce</h3>
+          <p>
+            Kazdy gracz nosi opaske na glowe wyposażona w czujniki podczerwieni. Czujniki sa rozmieszczone dookola opaski, co zapewnia wykrywanie trafien z kazdego kierunku. Dodatkowo karabinek rowniez posiada czujnik - tak, mozna "zniszczyc" bron przeciwnika!
+          </p>
+          <ul>
+            <li><strong>Czujniki 360 stopni</strong> - wykrywaja trafienia z kazdego kierunku</li>
+            <li><strong>Lekka konstrukcja</strong> - wygodna podczas dlugiej rozgrywki</li>
+            <li><strong>Swiecace diody LED</strong> - pokazuja kolor druzyny i stan gracza</li>
+            <li><strong>Czujnik na karabinku</strong> - mozna zniszczyc bron przeciwnika!</li>
+          </ul>
+
+          <h3>Komunikacja bezprzewodowa</h3>
+          <p>
+            Gdy karabinek wystrzeliwuje promien podczerwieni i trafia w czujnik przeciwnika, informacja o trafieniu jest natychmiast przesylana do centralnego serwera. Caly proces trwa ulamek sekundy i jest calkowicie niewidoczny dla graczy.
+          </p>
+
+          <h3>Centralny serwer</h3>
+          <p>
+            Serce naszego systemu to komputer, ktory zbiera dane ze wszystkich karabinkow i opasek w czasie rzeczywistym. Przetwarza setki informacji na sekunde, tworzac kompletny obraz tego, co dzieje sie na arenie.
+          </p>
+
+          <h2>Jakie statystyki zbieramy?</h2>
+
+          <h3>Podstawowe dane</h3>
+          <ul>
+            <li><strong>Trafienia</strong> - ile razy trafiales w przeciwnikow</li>
+            <li><strong>Eliminacje</strong> - ilu przeciwnikow wyeliminowales</li>
+            <li><strong>Smierci</strong> - ile razy zostalas wyeliminowany</li>
+            <li><strong>Celnosc</strong> - procent trafien do wszystkich strzalow</li>
+          </ul>
+
+          <h3>Zaawansowane metryki</h3>
+          <ul>
+            <li><strong>K/D Ratio</strong> - stosunek eliminacji do smierci</li>
+            <li><strong>Strzaly</strong> - calkowita liczba oddanych strzalow</li>
+            <li><strong>Czas zycia</strong> - sredni czas miedzy odrodzeniami</li>
+            <li><strong>Punkty druzyny</strong> - Twoj wklad w sukces zespolu</li>
+          </ul>
+
+          <h3>Osiagniecia i odznaki</h3>
+          <p>
+            Za wyjatkowe osiagniecia system przyznaje specjalne odznaki:
+          </p>
+          <ul>
+            <li><strong>First Blood</strong> - pierwsza eliminacja w rundzie</li>
+            <li><strong>Snajper</strong> - wysoka celnosc (ponad 70%)</li>
+            <li><strong>Rambo</strong> - najwiecej eliminacji w rundzie</li>
+            <li><strong>Survivor</strong> - najmniej smierci w rundzie</li>
+            <li><strong>MVP</strong> - najwartosciowszy gracz meczu</li>
+          </ul>
+
+          <h2>Wyniki po rozgrywce</h2>
+          <p>
+            Po zakonczeniu kazdej rundy wszystkie statystyki sa natychmiast dostepne. Mozesz zobaczyc:
+          </p>
+          <ul>
+            <li>Ranking wszystkich graczy</li>
+            <li>Twoje indywidualne statystyki</li>
+            <li>Porownanie z innymi uczestnikami</li>
+            <li>Zdobyte osiagniecia</li>
+            <li>Wynik druzyn (w trybach teamowych)</li>
+          </ul>
+
+          <h2>Strona z wynikami online</h2>
+          <p>
+            Twoje statystyki nie zostaja w forcie! Po rozgrywce mozesz sprawdzic swoje wyniki na naszej stronie internetowej w zakladce "Wyniki". Wystarczy znac numer gry lub pseudonim, ktorego uzywales.
+          </p>
+          <p>
+            Dzieki temu mozesz:
+          </p>
+          <ul>
+            <li>Sledzic swoje postepy w czasie</li>
+            <li>Porownywac wyniki z poprzednich wizyt</li>
+            <li>Rywalizowac ze znajomymi nawet po wyjsciu z areny</li>
+            <li>Dzielić się osiagnięciami w mediach spolecznosciowych</li>
+          </ul>
+
+          <h2>Jak poprawic swoje statystyki?</h2>
+
+          <h3>Celnosc</h3>
+          <p>
+            Nie strzelaj na oslepo! Kazdy niecelny strzal obniza Twoja celnosc. Poczekaj na pewny strzal i celuj starannie w czujniki przeciwnika.
+          </p>
+
+          <h3>K/D Ratio</h3>
+          <p>
+            Balans miedzy agresja a ostroznoscia. Zbyt defensywna gra da malo eliminacji, zbyt agresywna - wiele smierci. Znajdz zloty srodek.
+          </p>
+
+          <h3>Czas zycia</h3>
+          <p>
+            Ruch to zycie! Nie stoj w miejscu, uzywaj oslon i zawsze miej plan ucieczki. Im dluzej przezyjesz, tym wiecej mozesz osiagnac.
+          </p>
+
+          <div class="article-cta">
+            <h3>Sprawdz swoje umiejetnosci!</h3>
+            <p>Przyjdz do Laser Arena Poznan i przekonaj sie, jak wypadasz na tle innych graczy. Moze zostaniesz naszym nowym MVP?</p>
+            <a href="../rezerwacje.html" class="btn btn-primary">Zarezerwuj gre</a>
+          </div>
+        </div>
+
+        <div class="article-footer">
+          <div class="article-tags">
+            <span class="tag">Technologia</span>
+            <span class="tag">Statystyki</span>
+            <span class="tag">Wyniki</span>
+            <span class="tag">System</span>
+          </div>
+          <div class="article-share">
+            <span>Udostepnij:</span>
+            <a href="#" class="share-link" title="Facebook">FB</a>
+            <a href="#" class="share-link" title="Twitter">X</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2025 Laser Arena Poznan. Wszelkie prawa zastrzezone.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria - Laser Arena Poznań</title>
+    <meta
+      name="description"
+      content="Galeria zdjęć z Laser Arena Poznań - LaserTag w historycznym Forcie II."
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16691092408"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Konfiguracja Google Ads
+      gtag("config", "AW-16691092408");
+
+      // Konfiguracja Google Analytics 4
+      gtag("config", "G-8MMF96GQCJ");
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-brand">
+          <img
+            src="images/laser-arena-poznan-logo-small.svg"
+            alt="Laser Arena Poznań Logo"
+            class="nav-logo"
+          />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html#o-nas" class="nav-link">O nas</a>
+          <a href="index.html#oferta" class="nav-link">Oferta</a>
+          <a href="index.html#cennik" class="nav-link">Cennik</a>
+          <a href="rezerwacje.html" class="nav-link" hidden>Rezerwacje</a>
+          <a href="kalendarz.html" class="nav-link">Kalendarz</a>
+          <a href="wyniki.html" class="nav-link" hidden>Wyniki</a>
+          <a href="galeria.html" class="nav-link active">Galeria</a>
+          <a href="faq.html" class="nav-link">F.A.Q.</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twój koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="rezerwacje.html" class="btn btn-primary cart-checkout-btn"
+              >Przejdź do rezerwacji</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Galeria</h1>
+        <p class="page-subtitle">
+          Zobacz atmosferę Laser Arena Poznań w historycznym Forcie II
+        </p>
+      </div>
+    </section>
+
+    <!-- Full Gallery Section -->
+    <section class="section gallery-page">
+      <div class="gallery-masonry">
+        <!-- Arena & Gameplay -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-arena-glowna-beczki-oslony.jpg"
+            alt="Arena główna"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-akcja-beczki-oslony.jpg"
+            alt="Akcja w arenie"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-arena-apteczka-okno.jpg"
+            alt="Arena z apteczką"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-arena-glowna-beczka-apteczka.jpg"
+            alt="Arena główna"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-arena-glowna-beczki-slupek.jpg"
+            alt="Arena z beczkami"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-arena-gracze-beczki-korytarz.jpg"
+            alt="Gracze w korytarzu"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Fort & Building -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-budynek-fortu-fasada-ceglana.jpg"
+            alt="Fasada fortu"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-budynek-fortu-widok-zewnetrzny.jpg"
+            alt="Fort z zewnątrz"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-wejscie-do-fortu-brama-ceglana.jpg"
+            alt="Brama do fortu"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-wejscie-do-fortu-zabytkowy.jpg"
+            alt="Wejście zabytkowe"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-przejscie-w-forcie-ceglane-mury.jpg"
+            alt="Przejście w forcie"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Corridors -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-korytarz-beczki-oslony-widok.jpg"
+            alt="Korytarz z osłonami"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-korytarz-beczki-swiatlo.jpg"
+            alt="Korytarz oświetlony"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-korytarz-czerwone-oswietlenie-gracz.jpg"
+            alt="Gracz w czerwonym świetle"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-korytarz-fortu-kraty-widok.jpg"
+            alt="Korytarz z kratami"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-korytarz-niebieskie-oswietlenie-dym.jpg"
+            alt="Niebieskie oświetlenie"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-korytarz-perspektywa-beczki.jpg"
+            alt="Perspektywa korytarza"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-korytarz-sklepienie-ceglane-ekran.jpg"
+            alt="Sklepienie ceglane"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-korytarz-sklepiony-beczki-ekran.jpg"
+            alt="Korytarz sklepiony"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Players in action -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-graczka-z-karabinem-czerwone-swiatlo.jpg"
+            alt="Graczka z karabinem"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-biega-ceglane-sklepienie.jpg"
+            alt="Gracz biegnie"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-biega-ceglane-wnetrze.jpg"
+            alt="Gracz w ceglanych wnętrzach"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-biegnie-ceglany-korytarz.jpg"
+            alt="Bieg w korytarzu"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-celuje-korytarz-beczki.jpg"
+            alt="Gracz celuje"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-celuje-korytarz-fortu.jpg"
+            alt="Celowanie w forcie"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracze-w-akcji-fioletowe-oswietlenie.jpg"
+            alt="Gracze w akcji"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-przy-beczce-ceglany-fort.jpg"
+            alt="Gracz przy beczce"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-szuka-schronienia-mury.jpg"
+            alt="Szukanie schronienia"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-w-akcji-kamizelka-swiecaca.jpg"
+            alt="Kamizelka świecąca"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-gracz-w-ruchu-kamizelka-swiecaca.jpg"
+            alt="Gracz w ruchu"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-para-graczy-fioletowe-oswietlenie.jpg"
+            alt="Para graczy"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-rozgrywka-kolorowe-oswietlenie-gracze.jpg"
+            alt="Rozgrywka"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-trzech-graczy-rozgrywka-w-forcie.jpg"
+            alt="Trzech graczy"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-gracze-beczki-oslony.jpg"
+            alt="Gracze przy osłonach"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-arena-kolorowe-swiatla-beczki-oslony.jpg"
+            alt="Kolorowe światła"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Event rooms -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-sala-imprezowa-sklepienie-ceglane.jpg"
+            alt="Sala imprezowa"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-sala-imprezowa-stoly-lawki.jpg"
+            alt="Stoły i ławki"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-sala-imprezowa-stoly-siatka.jpg"
+            alt="Sala z siatką"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-sala-prywatna-stol-lawka.jpg"
+            alt="Sala prywatna"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-pomieszczenie-imprezowe-lawki.jpg"
+            alt="Pomieszczenie imprezowe"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-strefa-imprez-sklepienie.jpg"
+            alt="Strefa imprez"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-strefa-imprezowa-stoly-grupowe.jpg"
+            alt="Stoły grupowe"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-strefa-odpoczynku-lawki-sklepienie.jpg"
+            alt="Strefa odpoczynku"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-strefa-relaksu-dystrybutor-wody.jpg"
+            alt="Strefa relaksu"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Bar & Catering -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-bar-z-nalewem-piwa-dekoracje.jpg"
+            alt="Bar z piwem"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-bufet-catering-kawa-wino-szampan.jpg"
+            alt="Bufet cateringowy"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Entertainment -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-strefa-gier-tarcza-dart-cegla.jpg"
+            alt="Tarcza do darta"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-strefa-rozrywki-pilkarzyki-fort.jpg"
+            alt="Piłkarzyki"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Outdoor & Bonfire -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-strefa-ogniskowa-palenisko-drewno.jpg"
+            alt="Palenisko"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Birthdays & Groups -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-strefa-urodzinowa-balony-11-lat.jpg"
+            alt="Urodziny 11 lat"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-urodziny-dzieci-balon-8-lat.jpg"
+            alt="Urodziny 8 lat"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-urodziny-dzieci-grupa-karabiny.jpg"
+            alt="Urodziny grupowe"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-impreza-grupowa-goscie-przy-stole.jpg"
+            alt="Impreza grupowa"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Group photos -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-zdjecie-grupowe-doroli-karabiny-fort.jpg"
+            alt="Zdjęcie grupowe"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-zdjecie-grupowe-mezczyzni-karabiny.jpg"
+            alt="Mężczyźni z karabinami"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-zdjecie-grupowe-mezczyzni-maski.jpg"
+            alt="Grupa w maskach"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-zdjecie-grupowe-mlodziez-zabawa.jpg"
+            alt="Młodzież"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Briefing -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-tag-briefing-instruktor-przed-gra.jpg"
+            alt="Odprawa"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Other interior -->
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-pomieszczenie-beczka.jpg"
+            alt="Pomieszczenie z beczką"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-widok-z-fortu-beczki-wnetrze.jpg"
+            alt="Widok z fortu"
+            loading="lazy"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="images/laser-arena-wnetrze-areny-beczki-przejscia.jpg"
+            alt="Wnętrze areny"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta">
+      <div class="container">
+        <h2>Gotowy na przygodę?</h2>
+        <p>
+          Zarezerwuj termin i przeżyj niesamowitą rozgrywkę w historycznym
+          Forcie II!
+        </p>
+        <a href="rezerwacje.html" class="btn btn-primary">Zarezerwuj teraz</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>LASER ARENA POZNAŃ</h4>
+            <p>
+              Najnowoczesniejszy LaserTag w historycznych podziemiach Fortu II z
+              1878 roku.
+            </p>
+            <div class="footer-company">
+              <p><strong>Notec Kacper Urbaniak</strong></p>
+              <p>NIP: 2810094761</p>
+              <p>Osów 2, 66-530 Drezdenko</p>
+            </div>
+            <div class="footer-arena">
+              <p><strong>Arena:</strong> Fort II, ul. Obodrzycka, Poznań</p>
+            </div>
+            <div class="footer-payment">
+              <p><strong>Konto bankowe:</strong></p>
+              <p>28 1870 1045 2078 1077 4255 0001</p>
+              <p><strong>BLIK:</strong> +48 691 545 741</p>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Szybkie linki</h4>
+            <ul>
+              <li><a href="index.html#o-nas">O nas</a></li>
+              <li><a href="index.html#oferta">Oferta</a></li>
+              <li><a href="index.html#cennik">Cennik</a></li>
+              <li><a href="rezerwacje.html">Rezerwacje</a></li>
+              <li><a href="kalendarz.html">Kalendarz</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Informacje</h4>
+            <ul>
+              <li><a href="faq.html">F.A.Q.</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="#">Polityka prywatności</a></li>
+              <li><a href="#">Regulamin</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Godziny otwarcia</h4>
+            <p>Codziennie: 9:00 - 21:00</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Laser Arena Poznań. Wszelkie prawa zastrzeżone.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
+      <button class="lightbox-next" id="lightboxNext">&#10095;</button>
+      <img src="" alt="" class="lightbox-image" id="lightboxImage" />
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Lightbox functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const lightboxClose = document.getElementById("lightboxClose");
+        const lightboxPrev = document.getElementById("lightboxPrev");
+        const lightboxNext = document.getElementById("lightboxNext");
+        const masonryItems = document.querySelectorAll(".masonry-item img");
+
+        let currentIndex = 0;
+        const images = Array.from(masonryItems);
+
+        // Open lightbox
+        masonryItems.forEach((img, index) => {
+          img.addEventListener("click", function () {
+            currentIndex = index;
+            lightboxImage.src = this.src;
+            lightboxImage.alt = this.alt;
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+          });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) closeLightbox();
+        });
+
+        function closeLightbox() {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        // Navigate
+        lightboxPrev.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          lightboxImage.src = images[currentIndex].src;
+          lightboxImage.alt = images[currentIndex].alt;
+        });
+
+        lightboxNext.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currentIndex = (currentIndex + 1) % images.length;
+          lightboxImage.src = images[currentIndex].src;
+          lightboxImage.alt = images[currentIndex].alt;
+        });
+
+        // Keyboard navigation
+        document.addEventListener("keydown", function (e) {
+          if (!lightbox.classList.contains("active")) return;
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") lightboxPrev.click();
+          if (e.key === "ArrowRight") lightboxNext.click();
+        });
+      });
+    </script>
+
+    <!-- Sticky Phone Bar (Mobile) -->
+    <div class="sticky-phone-bar" id="stickyPhoneBar">
+      <a href="tel:+48691545741" class="sticky-phone-link">
+        <span class="sticky-phone-icon">&#128222;</span>
+        <span class="sticky-phone-text">Zadzwoń teraz</span>
+      </a>
+    </div>
+  </body>
+</html>

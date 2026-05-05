@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wyniki - Laser Arena Poznań</title>
+    <meta
+      name="description"
+      content="Sprawdź swoje statystyki i wyniki z rozgrywek LaserTag w Laser Arena Poznań."
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16691092408"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Konfiguracja Google Ads
+      gtag("config", "AW-16691092408");
+
+      // Konfiguracja Google Analytics 4
+      gtag("config", "G-8MMF96GQCJ");
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-brand">
+          <img
+            src="images/laser-arena-poznan-logo-small.svg"
+            alt="Laser Arena Poznań Logo"
+            class="nav-logo"
+          />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html#o-nas" class="nav-link">O nas</a>
+          <a href="index.html#oferta" class="nav-link">Oferta</a>
+          <a href="index.html#cennik" class="nav-link">Cennik</a>
+          <a href="rezerwacje.html" class="nav-link" hidden>Rezerwacje</a>
+          <a href="kalendarz.html" class="nav-link">Kalendarz</a>
+          <a href="wyniki.html" class="nav-link active" hidden>Wyniki</a>
+          <a href="galeria.html" class="nav-link">Galeria</a>
+          <a href="faq.html" class="nav-link">F.A.Q.</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twój koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="rezerwacje.html" class="btn btn-primary cart-checkout-btn"
+              >Przejdz do rezerwacji</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Wyniki Section -->
+    <section class="section section-results page-section">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="page-title">Wyniki</h1>
+          <p class="page-subtitle">
+            Sprawdz swoje statystyki i rywalizuj z innymi graczami
+          </p>
+        </div>
+
+        <div class="results-content">
+          <p class="results-intro">
+            Sprawdź swoje statystyki z ostatnich rozgrywek. Śledź postępy,
+            porównuj wyniki i rywalizuj z innymi graczami!
+          </p>
+
+          <div class="results-search">
+            <input
+              type="text"
+              id="playerSearch"
+              placeholder="Wpisz kod gracza lub email..."
+            />
+            <button class="btn btn-primary">Szukaj</button>
+          </div>
+
+          <div id="resultsDisplay" class="results-display">
+            <div class="results-placeholder">
+              <div class="placeholder-icon">📊</div>
+              <p>Wprowadź kod gracza aby zobaczyć statystyki</p>
+            </div>
+          </div>
+
+          <div class="leaderboard">
+            <h3>🏆 Ranking Miesiąca</h3>
+            <div class="leaderboard-table">
+              <div class="leaderboard-row header">
+                <span>Miejsce</span>
+                <span>Gracz</span>
+                <span>Punkty</span>
+                <span>Gry</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank gold">1</span>
+                <span>ALPHA_WOLF</span>
+                <span>15,420</span>
+                <span>28</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank silver">2</span>
+                <span>SHADOW_OPS</span>
+                <span>14,890</span>
+                <span>25</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank bronze">3</span>
+                <span>TACTICAL_ACE</span>
+                <span>13,550</span>
+                <span>22</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank">4</span>
+                <span>NIGHT_STRIKER</span>
+                <span>12,780</span>
+                <span>20</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank">5</span>
+                <span>GHOST_HUNTER</span>
+                <span>11,950</span>
+                <span>18</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank">6</span>
+                <span>LASER_KING</span>
+                <span>11,200</span>
+                <span>17</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank">7</span>
+                <span>SNIPER_PRO</span>
+                <span>10,850</span>
+                <span>16</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank">8</span>
+                <span>FURY_BLAZE</span>
+                <span>10,500</span>
+                <span>15</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank">9</span>
+                <span>DARK_KNIGHT</span>
+                <span>10,100</span>
+                <span>14</span>
+              </div>
+              <div class="leaderboard-row">
+                <span class="rank">10</span>
+                <span>RAPID_FIRE</span>
+                <span>9,800</span>
+                <span>13</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-cta">
+          <p>Chcesz poprawic swoj wynik?</p>
+          <a href="rezerwacje.html" class="btn btn-primary btn-large"
+            >Zarezerwuj rozgrywke</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2025 Laser Arena Poznan. Wszelkie prawa zastrzezone.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

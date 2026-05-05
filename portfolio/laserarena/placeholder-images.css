@@ -1,0 +1,47 @@
+/* ===================================
+   PLACEHOLDER IMAGES
+   Temporary CSS to show colored placeholders
+   instead of broken image links.
+   Remove this file once you add real images!
+   =================================== */
+
+/* Gallery items - show colored placeholders */
+.gallery-item img {
+    min-height: 300px;
+    background: linear-gradient(135deg, #1a4d2e 0%, #0f2818 100%);
+}
+
+.about-image img {
+    min-height: 400px;
+    background: linear-gradient(135deg, #1a4d2e 0%, #0f2818 100%);
+}
+
+.blog-image img {
+    min-height: 250px;
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+/* Alternative: Show "No image" text */
+.gallery-item::after,
+.about-image::after,
+.blog-image::after {
+    content: '📷 Add image here';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.3);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    text-align: center;
+    pointer-events: none;
+}
+
+/*
+TO USE:
+Add this line to your index.html <head> section:
+<link rel="stylesheet" href="placeholder-images.css">
+
+TO REMOVE:
+Delete this file and the line from index.html once you add real images
+*/

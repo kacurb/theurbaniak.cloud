@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Laser Arena Poznań</title>
+    <meta
+      name="description"
+      content="Aktualności, poradniki i ciekawostki o LaserTag w Laser Arena Poznań."
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16691092408"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Konfiguracja Google Ads
+      gtag("config", "AW-16691092408");
+
+      // Konfiguracja Google Analytics 4
+      gtag("config", "G-8MMF96GQCJ");
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-brand">
+          <img
+            src="images/laser-arena-poznan-logo-small.svg"
+            alt="Laser Arena Poznań Logo"
+            class="nav-logo"
+          />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html#o-nas" class="nav-link">O nas</a>
+          <a href="index.html#oferta" class="nav-link">Oferta</a>
+          <a href="index.html#cennik" class="nav-link">Cennik</a>
+          <a href="rezerwacje.html" class="nav-link" hidden>Rezerwacje</a>
+          <a href="kalendarz.html" class="nav-link">Kalendarz</a>
+          <a href="wyniki.html" class="nav-link" hidden>Wyniki</a>
+          <a href="galeria.html" class="nav-link">Galeria</a>
+          <a href="faq.html" class="nav-link">F.A.Q.</a>
+          <a href="blog.html" class="nav-link active">Blog</a>
+          <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twój koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="rezerwacje.html" class="btn btn-primary cart-checkout-btn"
+              >Przejdź do rezerwacji</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Blog Section -->
+    <section class="section section-blog page-section">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="page-title">Blog</h1>
+          <p class="page-subtitle">
+            Aktualności, poradniki i ciekawostki ze świata LaserTag
+          </p>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-image">
+              <div class="blog-image-placeholder">&#127919;</div>
+              <div class="blog-category">Historia</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">15.12.2025</span>
+                <span class="blog-author">Admin</span>
+              </div>
+              <h3>Historia Fortu II - od 1848 do dziś</h3>
+              <p>
+                Poznaj fascynującą historię fortyfikacji, która przez ponad 170
+                lat przetrwała jako testament militarnego budownictwa. Dowiedz
+                się jak Fort II stał się areną LaserTag...
+              </p>
+              <a href="blog/historia-fortu.html" class="blog-link"
+                >Czytaj więcej &#8594;</a
+              >
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-image">
+              <div class="blog-image-placeholder">&#127942;</div>
+              <div class="blog-category">Poradnik</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">10.12.2025</span>
+                <span class="blog-author">Admin</span>
+              </div>
+              <h3>5 taktyk, które zdominują rozgrywkę</h3>
+              <p>
+                Poznaj sprawdzone strategie, które pomogą Twojej drużynie
+                osiągnąć przewagę w każdym scenariuszu. Od komunikacji po
+                pozycjonowanie...
+              </p>
+              <a href="blog/taktyki-lasertag.html" class="blog-link"
+                >Czytaj więcej &#8594;</a
+              >
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-image">
+              <div class="blog-image-placeholder">&#127881;</div>
+              <div class="blog-category">Eventy</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">05.12.2025</span>
+                <span class="blog-author">Admin</span>
+              </div>
+              <h3>LaserTag jako integracja firmowa</h3>
+              <p>
+                Dlaczego LaserTag to doskonały pomysł na event firmowy? Sprawdź
+                jak zorganizować niezapomnianą imprezę dla zespołu i zbudować
+                relacje...
+              </p>
+              <a href="blog/integracja-firmowa.html" class="blog-link"
+                >Czytaj więcej &#8594;</a
+              >
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-image">
+              <div class="blog-image-placeholder">&#127873;</div>
+              <div class="blog-category">Urodziny</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">01.12.2025</span>
+                <span class="blog-author">Admin</span>
+              </div>
+              <h3>Idealny pomysł na urodziny dziecka</h3>
+              <p>
+                Szukasz oryginalnego pomysłu na urodziny? LaserTag to
+                niezapomniane przeżycie dla każdego małego wojownika. Sprawdź
+                nasze pakiety urodzinowe...
+              </p>
+              <a href="blog/urodziny-dziecka.html" class="blog-link"
+                >Czytaj więcej &#8594;</a
+              >
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-image">
+              <div class="blog-image-placeholder">&#128187;</div>
+              <div class="blog-category">Technologia</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">25.11.2025</span>
+                <span class="blog-author">Admin</span>
+              </div>
+              <h3>Jak działa nasz system statystyk?</h3>
+              <p>
+                Poznaj technologię, która stoi za naszym systemem statystyk na
+                żywo. Dowiedz się jak śledzimy każde trafienie i eliminację...
+              </p>
+              <a href="blog/system-statystyk.html" class="blog-link"
+                >Czytaj więcej &#8594;</a
+              >
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-image">
+              <div class="blog-image-placeholder">&#128170;</div>
+              <div class="blog-category">Fitness</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">20.11.2025</span>
+                <span class="blog-author">Admin</span>
+              </div>
+              <h3>LaserTag jako forma treningu</h3>
+              <p>
+                Czy wiesz, że podczas godziny LaserTag możesz spalić do 500
+                kalorii? Poznaj zdrowotne korzyści płynące z aktywnej
+                rozgrywki...
+              </p>
+              <a href="blog/lasertag-trening.html" class="blog-link"
+                >Czytaj więcej &#8594;</a
+              >
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2025 Laser Arena Poznań. Wszelkie prawa zastrzeżone.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

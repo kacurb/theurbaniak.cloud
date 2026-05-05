@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalendarz Rezerwacji - Laser Arena Poznań</title>
+    <meta
+      name="description"
+      content="Sprawdź dostępne terminy w Laser Arena Poznań."
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="calendar-page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16691092408"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Konfiguracja Google Ads
+      gtag("config", "AW-16691092408");
+
+      // Konfiguracja Google Analytics 4
+      gtag("config", "G-8MMF96GQCJ");
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-brand">
+          <img
+            src="images/laser-arena-poznan-logo-small.svg"
+            alt="Laser Arena Poznań Logo"
+            class="nav-logo"
+          />
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html#o-nas" class="nav-link">O nas</a>
+          <a href="index.html#oferta" class="nav-link">Oferta</a>
+          <a href="index.html#cennik" class="nav-link">Cennik</a>
+          <a href="rezerwacje.html" class="nav-link" hidden>Rezerwacje</a>
+          <a href="kalendarz.html" class="nav-link active">Kalendarz</a>
+          <a href="wyniki.html" class="nav-link" hidden>Wyniki</a>
+          <a href="galeria.html" class="nav-link">Galeria</a>
+          <a href="faq.html" class="nav-link">F.A.Q.</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="cart-btn" id="cartBtn" title="Koszyk" hidden>
+            <span class="cart-icon">&#128722;</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <div class="language-dropdown" hidden>
+            <button class="lang-dropdown-btn" id="langDropdownBtn">
+              <span class="lang-current">PL</span>
+              <span class="lang-arrow">&#9662;</span>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <a href="#" class="lang-option active" data-lang="pl">Polski</a>
+              <a href="#" class="lang-option" data-lang="en">English</a>
+              <a href="#" class="lang-option" data-lang="de">Deutsch</a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">&#9728;</span>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-header">
+            <h4>Twój koszyk</h4>
+            <button class="cart-close" id="cartClose">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Koszyk jest pusty</p>
+          </div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Suma:</span>
+              <span id="cartTotal">0 PLN</span>
+            </div>
+            <a href="rezerwacje.html" class="btn btn-primary cart-checkout-btn"
+              >Przejdź do rezerwacji</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Calendar Section -->
+    <section class="calendar-page-section">
+      <div class="container">
+        <div class="calendar-page-header">
+          <h1 class="page-title">Kalendarz Rezerwacji</h1>
+          <p class="page-subtitle">
+            Sprawdź dostępne terminy i skontaktuj się z nami
+          </p>
+        </div>
+
+        <!-- Google Calendar -->
+        <div style="margin: 2rem 0;">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=rezerwacje.leyzertag%40gmail.com&ctz=Europe%2FWarsaw&mode=WEEK&wkst=2&showTitle=0&showPrint=0&showCalendars=0&showTz=0"
+            style="border: 0; display: block; width: 100%;"
+            height="700"
+            frameborder="0"
+            scrolling="no"
+          ></iframe>
+        </div>
+
+        <!-- CTA -->
+        <div class="calendar-cta">
+          <p>Znalazłeś wolny termin? Wyślij zgłoszenie rezerwacji.</p>
+          <a href="rezerwacje.html" class="btn btn-primary btn-large"
+            >Zarezerwuj teraz</a
+          >
+          <a href="tel:+48691545741" class="btn btn-secondary btn-large" style="margin-top: 0.75rem;"
+            >Zadzwoń: 691 545 741</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2025 Laser Arena Poznań. Wszelkie prawa zastrzeżone.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky Phone Bar (Mobile) -->
+    <div class="sticky-phone-bar" id="stickyPhoneBar">
+      <a href="tel:+48691545741" class="sticky-phone-link">
+        <span class="sticky-phone-icon">&#128222;</span>
+        <span class="sticky-phone-text">Zadzwoń teraz</span>
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="calendar-page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+function doGet() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
+  const data = sheet.getDataRange().getValues();
+
+  const bookings = {};
+
+  // Start from row 2 (skip header)
+  for (let i = 1; i < data.length; i++) {
+    const row = data[i];
+
+    // Skip empty rows (must have date and start time)
+    if (!row[0] || !row[1]) continue;
+
+    // Column A - Data (Date)
+    // WAŻNE: Używamy Europe/Warsaw aby uniknąć przesunięcia dat przez UTC
+    const dateObj = new Date(row[0]);
+    const date = Utilities.formatDate(dateObj, "Europe/Warsaw", "yyyy-MM-dd");
+
+    // Column B - Godzina start
+    const startTime = parseTime(row[1], i, "start");
+
+    // Column C - Godzina koniec
+    const endTime = parseTime(row[2], i, "end");
+
+    // Calculate duration in minutes from start and end time
+    const duration = calculateDuration(startTime, endTime);
+
+    // Column D - Email
+    const email = (row[3] && row[3].toString().trim()) || "";
+
+    // Column E - Telefon
+    const phone = (row[4] && row[4].toString().trim()) || "";
+
+    // Column F - Liczba osob
+    const people = row[5] || "";
+
+    // Column G - Usluga (pakiet)
+    const service = (row[6] && row[6].toString().trim()) || "";
+
+    // Column H - Status
+    // 1 = potwierdzona (confirmed)
+    // 0 lub puste = niepotwierdzona (pending)
+    const statusValue = row[7];
+    let status = "pending";
+
+    if (statusValue === 1 || statusValue === "1" || statusValue === true) {
+      status = "confirmed";
+    }
+
+    // Initialize array for this date if it doesn't exist
+    if (!bookings[date]) {
+      bookings[date] = [];
+    }
+
+    // Add booking with full details
+    bookings[date].push({
+      time: startTime,
+      endTime: endTime,
+      email: email,
+      phone: phone,
+      people: String(people),
+      service: service,
+      status: status,
+      duration: duration
+    });
+
+    Logger.log("Row " + i + ": " + date + " " + startTime + "-" + endTime + " | Status: " + status + " | Duration: " + duration + "min");
+  }
+
+  return ContentService.createTextOutput(JSON.stringify(bookings)).setMimeType(
+    ContentService.MimeType.JSON
+  );
+}
+
+// Helper function to parse time from various formats
+function parseTime(timeValue, rowIndex, label) {
+  let timeString = "12:00";
+
+  if (typeof timeValue === "string") {
+    // Already a string like "19:00"
+    timeString = timeValue;
+  } else if (typeof timeValue === "number") {
+    // Excel serial number between 0 and 1
+    const hours = Math.floor(timeValue * 24);
+    const minutes = Math.round((timeValue * 24 - hours) * 60);
+    timeString = String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, "0");
+  } else if (typeof timeValue === "object" && timeValue) {
+    // Google Sheets Time format (Date object)
+    const dateObj = new Date(timeValue);
+    const hours = dateObj.getHours();
+    const minutes = dateObj.getMinutes();
+    timeString = String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, "0");
+  }
+
+  return timeString;
+}
+
+// Helper function to calculate duration in minutes
+function calculateDuration(startTime, endTime) {
+  const [startHour, startMin] = startTime.split(":").map(Number);
+  const [endHour, endMin] = endTime.split(":").map(Number);
+
+  let startMinutes = startHour * 60 + startMin;
+  let endMinutes = endHour * 60 + endMin;
+
+  // Handle overnight bookings (e.g., 22:00 - 01:00)
+  if (endMinutes < startMinutes) {
+    endMinutes += 24 * 60;
+  }
+
+  return endMinutes - startMinutes;
+}
+
+// Test function to verify the output
+function testDoGet() {
+  const result = doGet();
+  Logger.log(result.getContent());
+}
